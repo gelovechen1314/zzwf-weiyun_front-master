@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header">客户列表</div>
+        <div class="header">客户信息</div>
         <div class="panel">
             <div class="panel-header">
                 <div class="row">

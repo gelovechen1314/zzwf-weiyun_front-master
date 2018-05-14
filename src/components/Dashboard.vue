@@ -112,7 +112,7 @@
                 let chart = this.echarts.init(document.getElementById('monthChart'))
                 // 绘制图表
                 chart.setOption({
-                    color:'#9be8ad',
+                   /* color:'#9be8ad',*/
                 title: {
                         x:'12px',
                         y:'12px',

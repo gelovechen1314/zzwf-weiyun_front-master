@@ -5,8 +5,11 @@ import * as types from '../store/types'
 const Home  = r => require.ensure([], () => r(require('../components/Home.vue')), 'home')
 const Dashboard  = r => require.ensure([], () => r(require('../components/Dashboard.vue')), 'dashboard')
 const Login  = r => require.ensure([], () => r(require('../components/Login.vue')), 'login')
-const Monitor  = r => require.ensure([], () => r(require('../components/Monitor.vue')), 'monitor')
+const Monitor  = r => require.ensure([], () => r(require('../components/monitor/Monitor.vue')), 'monitor')
 const Customer  = r => require.ensure([], () => r(require('../components/customer/Customer.vue')), 'customer')
+const Forecast  = r => require.ensure([], () => r(require('../components/forecast/Forecast.vue')), 'forecast')
+const Equipment  = r => require.ensure([], () => r(require('../components/equipment/Equipment.vue')), 'equipment')
+const Accountnumber  = r => require.ensure([], () => r(require('../components/accountnumber/Accountnumber.vue')), 'accountnumber')
 
 Vue.use(VueRouter)
 
@@ -25,7 +28,47 @@ const routes = [
             },
             {
                 path: '/monitor',
-                component: Monitor
+                component: Monitor,
+                children:[
+                 {
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/monitor/Index.vue')), 'monitor')
+                    },
+                    {
+                        path: '/monitor/electricmonitor',
+                        component: r => require.ensure([], () => r(require('../components/monitor/Electricmonitor.vue')), 'monitor')
+                    },
+                    {
+                        path: '/monitor/loadmonitor',
+                        component: r => require.ensure([], () => r(require('../components/monitor/Loadmonitor.vue')), 'monitor')
+                    },
+                    {
+                        path: '/monitor/loadrateanalysis',
+                        component: r => require.ensure([], () => r(require('../components/monitor/Loadrateanalysis.vue')), 'monitor')
+                    },
+                    {
+                        path: '/monitor/requirementanalysis',
+                        component: r => require.ensure([], () => r(require('../components/monitor/Requirementanalysis.vue')), 'monitor')
+                    },
+                ]
+            },
+             {
+                path: '/forecast',
+                component: Forecast,
+                children:[
+                 	{
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/forecast/Index.vue')), 'forecast')
+                    },
+                    {
+                        path: '/forecast/annualelectricityforecast',
+                        component: r => require.ensure([], () => r(require('../components/forecast/Annualelectricityforecast.vue')), 'forecast')
+                    },
+                     {
+                        path: '/forecast/monthlyelectricityforecast',
+                        component: r => require.ensure([], () => r(require('../components/forecast/Monthlyelectricityforecast.vue')), 'forecast')
+                    },
+                ]
             },
             {
                 path:'/customer',
@@ -38,9 +81,59 @@ const routes = [
                     {
                         path: '/customer/create',
                         component: r => require.ensure([], () => r(require('../components/customer/Create.vue')), 'customer')
+                    },
+                    {
+                        path: '/customer/customerinformation',
+                        component: r => require.ensure([], () => r(require('../components/customer/Customerinformation.vue')), 'customer')
+                    },
+                    {
+                        path: '/customer/customermanagement',
+                        component: r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')
+                    },
+                    {
+                        path: '/customer/supplier',
+                        component: r => require.ensure([], () => r(require('../components/customer/Supplier.vue')), 'customer')
                     }
                 ]
-            }
+            },
+            {
+                path: '/equipment',
+                component: Equipment,
+                children:[
+                 	{
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Index.vue')), 'equipment')
+                    },
+                    {
+                        path: '/equipment/customerinstallinformation',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Customerinstallinformation.vue')), 'equipment')
+                    },
+                     {
+                        path: '/equipment/equipmentmanagement',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Equipmentmanagement.vue')), 'equipment')
+                    },
+                    {
+                        path: '/equipment/collectstatestatistics',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Collectstatestatistics.vue')), 'equipment')
+                    }, 
+                    {
+                        path: '/equipment/terminalinformation',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Terminalinformation.vue')), 'equipment')
+                    },
+                     
+                    
+                ]
+            },
+            {
+                path: '/accountnumber',
+                component: Accountnumber,
+                children:[
+                 {
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Accountnumber.vue')), 'accountnumber')
+                    },
+                ]
+            },
         ]
     },
     {

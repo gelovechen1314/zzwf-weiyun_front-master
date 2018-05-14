@@ -2,17 +2,13 @@
     <div class="hbox">
         <div class="col left">
             <div class="header">
-                客户管理
+                	客户中心
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                    <b-nav-item active>客户管理</b-nav-item>
-                    <b-nav-item>负荷监测</b-nav-item>
-                    <b-nav-item>电流监测</b-nav-item>
-                    <b-nav-item>功率因数监测</b-nav-item>
-                    <b-nav-item>数据采集</b-nav-item>
-                    <b-nav-item>用电监控</b-nav-item>
-                    <b-nav-item>设备监测</b-nav-item>
+                    <b-nav-item to="/customer/customerinformation" >客户信息</b-nav-item>
+                    <b-nav-item to="/customer/customermanagement">客户管理</b-nav-item>
+                    <b-nav-item to="/customer/supplier">供应商</b-nav-item>
                 </b-nav>
             </div>
         </div>
