@@ -6,10 +6,10 @@
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                    <b-nav-item to="equipment/customerinstallinformation">客户安装信息</b-nav-item>
-                    <b-nav-item to="equipment/equipmentmanagement">设备管理</b-nav-item>
-                    <b-nav-item  to="equipment/collectstatestatistics" >采集状态统计</b-nav-item>
-                     <b-nav-item to="equipment/terminalinformation" >终端信息</b-nav-item>
+                    <b-nav-item to="/equipment/customerinstallinformation">客户安装信息</b-nav-item>
+                    <b-nav-item to="/equipment/equipmentmanagement">设备管理</b-nav-item>
+                    <b-nav-item  to="/equipment/collectstatestatistics" >采集状态统计</b-nav-item>
+                     <b-nav-item to="/equipment/terminalinformation" >终端信息</b-nav-item>
                 </b-nav>
             </div>
         </div>
@@ -34,6 +34,81 @@
 </template>
 
 <script>
+	import TreeList from 'vue-jstree';
+	 export default {
+	 	components: {
+			TreeList,
+			
+		},
+        data() {
+			return {
+				flag: false,
+				companyKeyword: '',
+				companys: [{
+						"text": "郑州市",
+						"icon": "",
+						"opened": true,
+						"children": [{
+								"text": "登封市鑫浩耐磨材料有限公司",
+								"children": [{
+										"text": "户号(509273589)"
+									},
+									{
+										"text": "户号(509273560)"
+									}
+								]
+							},
+							{
+								"text": "河南省鸿润建材发展有限公司"
+							},
+							{
+								"text": "河南金水电缆集团有限公司"
+							}
+						]
+					},
+					{
+						"text": "开封市",
+					},
+					{
+						"text": "平顶山市",
+					},
+					{
+						"text": "洛阳市",
+					}
+				]
+			}
+		},
+        components:{
+        	
+        },
+        computed: {
+
+        },
+        methods:{
+           itemClick(node) {
+				console.log(node.model.text + ' clicked !')
+			},
+			SearchCompany: function() {
+				var text = this.companyKeyword
+				const patt = new RegExp(text);
+				this.$refs.tree.handleRecursionNodeChilds(this.$refs.tree, function(node) {
+					if(text !== '') {
+						const str = node.model.text
+						if(patt.test(str)) {
+							node.$el.querySelector('.tree-anchor').style.color = 'red';
+							var el = node.$el.querySelector('.tree-anchor');
+							el.parentElement.parentElement.previousElementSibling.closest("div").style.color = 'red';
+						} else {
+							node.$el.querySelector('.tree-anchor').style.color = '#000'
+						} // or other operations
+					} else {
+						node.$el.querySelector('.tree-anchor').style.color = '#000'
+					}
+				})
+			},
+        }
+    }
+	
 </script>
 
 <style>

@@ -130,7 +130,23 @@ const routes = [
                 children:[
                  {
                         path: '/',
-                        component: r => require.ensure([], () => r(require('../components/accountnumber/Accountnumber.vue')), 'accountnumber')
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Index.vue')), 'accountnumber')
+                    },
+                    {
+                        path: '/accountnumber/personaldata',
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Personaldata.vue')), 'accountnumber')
+                    },
+                    {
+                        path: '/accountnumber/rolepermission',
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Rolepermission.vue')), 'accountnumber')
+                    },
+                    {
+                        path: '/accountnumber/operationlog',
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Operationlog.vue')), 'accountnumber')
+                    },
+                    {
+                        path: '/accountnumber/loginrecord',
+                        component: r => require.ensure([], () => r(require('../components/accountnumber/Loginrecord.vue')), 'accountnumber')
                     },
                 ]
             },
