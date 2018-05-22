@@ -7,6 +7,7 @@ const Dashboard  = r => require.ensure([], () => r(require('../components/Dashbo
 const Login  = r => require.ensure([], () => r(require('../components/Login.vue')), 'login')
 const Monitor  = r => require.ensure([], () => r(require('../components/monitor/Monitor.vue')), 'monitor')
 const Customer  = r => require.ensure([], () => r(require('../components/customer/Customer.vue')), 'customer')
+const Customermanagement  = r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')
 const Forecast  = r => require.ensure([], () => r(require('../components/forecast/Forecast.vue')), 'forecast')
 const Equipment  = r => require.ensure([], () => r(require('../components/equipment/Equipment.vue')), 'equipment')
 const Accountnumber  = r => require.ensure([], () => r(require('../components/accountnumber/Accountnumber.vue')), 'accountnumber')
@@ -88,12 +89,31 @@ const routes = [
                     },
                     {
                         path: '/customer/customermanagement',
-                        component: r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')
+                        component:Customermanagement,
+	                        children:[
+		                         {
+		                        path: '/customer/customermanagement/',
+		                        component: r => require.ensure([], () => r(require('../components/customer/Customerimport.vue')), 'customer')
+		                   	 	},
+		                   	 	{
+		                        path: '/customer/customermanagement/customermigration',
+		                        component: r => require.ensure([], () => r(require('../components/customer/Customermigration.vue')), 'customer')
+		                    	},
+		                    	 {
+		                        path: '/customer/customermanagement/incrementalacquisition',
+		                        component: r => require.ensure([], () => r(require('../components/customer/Incrementalacquisition.vue')), 'customer')
+		                    },
+		                    	
+	                        ]
+                        /*component: r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')*/
                     },
                     {
                         path: '/customer/supplier',
                         component: r => require.ensure([], () => r(require('../components/customer/Supplier.vue')), 'customer')
-                    }
+                    },
+                   
+                    
+                    
                 ]
             },
             {

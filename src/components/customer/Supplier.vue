@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="contentCon">
 		<div class="header titleHea">
 			<span>供应商</span>
 			<p>
@@ -80,6 +80,7 @@
 </template>
 
 <script>
+	import "../../assets/css/com.css"
 	import headerLong from "../common/headerLong.vue";
 	import pages from "../common/pages.vue";
 	export default {
@@ -218,41 +219,9 @@
 </script>
 
 <style scoped>
-	.titleHea {
-		padding: 0px;
-		height: 58px;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-	}
-	
-	.titleHea:after {
-		content: "";
-		height: 0;
-		line-height: 0;
-		display: block;
-		visibility: hidden;
-		clear: both
-	}
-	
-	.titleHea span {
-		display: inline-block;
-		padding: 0px 20px;
-		line-height: 58px;
-		border-bottom: 2px solid #0099ff;
-	}
-	
-	.titleHea p {
-		display: block;
-		float: right;
-		text-align: right;
-		width: 80%;
-		line-height: 58px;
-		font-size: 14px;
-	}
-	
-	.titleHea p b {
-		font-weight: normal;
+	.contentCon{
+		width:100%;
+		padding-bottom:80px;
 	}
 	
 	.wrapperCon {
@@ -332,78 +301,4 @@
 		text-decoration: none;
 	}
 	
-	.pageCon {
-		padding-right:40px;
-		height:40px;
-		margin-top:10px;
-	}
-	.pageShow{
-		width:100%;
-		height:100%;
-		
-	}
-	.page {
-		font-weight: 900;
-		height: 40px;
-		text-align: right;
-		color: #888;
-		margin: 20px auto 0;
-		background: #f2f2f2;
-	}
-	
-	.pagelist {
-		font-size: 0;
-		background: #fff;
-		height: 50px;
-		line-height: 50px;
-	}
-	
-	.pagelist span {
-		font-size: 14px;
-	}
-	
-	.pagelist .jump {
-		border: 1px solid #ccc;
-		padding: 5px 8px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-		cursor: pointer;
-		margin-left: 5px;
-	}
-	
-	.pagelist .bgprimary {
-		cursor: default;
-		color: #fff;
-		background: #337ab7;
-		border-color: #337ab7;
-	}
-	
-	.jumpinp input {
-		width: 55px;
-		height: 26px;
-		font-size: 13px;
-		border: 1px solid #ccc;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-		text-align: center;
-	}
-	
-	.ellipsis {
-		padding: 0px 8px;
-	}
-	
-	.jumppoint {
-		margin-left: 30px;
-	}
-	
-	.pagelist .gobtn {}
-	
-	.bgprimary {
-		cursor: default;
-		color: #fff;
-		background: #337ab7;
-		border-color: #337ab7;
-	}
 </style>

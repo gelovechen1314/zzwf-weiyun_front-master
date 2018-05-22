@@ -14,7 +14,7 @@
 		<div class="col">
 			<router-view></router-view>
 		</div>
-		<div class="col right">
+		<!--<div class="col right">
 			<div class="header">
 
 			</div>
@@ -26,7 +26,7 @@
 				</form>
 				<TreeList :data="companys" noDots @item-click="itemClick" ref="tree"></TreeList>
 			</div>
-		</div>
+		</div>-->
 	</div>
 </template>
 

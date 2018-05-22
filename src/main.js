@@ -5,6 +5,7 @@ import store from './store/store'
 import App from './App.vue'
 import headerBar from './components/common/headerBar.vue'
 import headerLong from './components/common/headerLong.vue'
+import longBheader from './components/common/longBheader.vue'
 import pages from './components/common/pages.vue'
 import router from './config/router'
 // 引入echarts
@@ -22,6 +23,7 @@ Vue.use(BootstrapVue)
 //公用组件在此注册，之后使用就不需要导包
 Vue.component('headerBar', headerBar);
 Vue.component('headerLong', headerLong);
+Vue.component('longBheader', longBheader);
 Vue.component('pages', pages);
 Vue.component('TreeList', TreeList);
 

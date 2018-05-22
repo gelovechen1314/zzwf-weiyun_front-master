@@ -55,7 +55,10 @@ module.exports = {
   performance: {
     hints: false
   },
-  plugins: [new ExtractTextPlugin("main.css")],
+  plugins: [new ExtractTextPlugin("main.css"),new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+      })],
   devtool: '#eval-source-map'
 }
 
