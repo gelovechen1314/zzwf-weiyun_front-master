@@ -29,15 +29,18 @@
         <div class="app-side">
                 <b-nav>
                     <b-nav-item to="/" exact><i class="iconfont icon-dashboard"></i>首页</b-nav-item>
-                    <b-nav-item to="/monitor"><i class="iconfont icon-monitor"></i>监控</b-nav-item>
+                      <b-nav-item to="/customer"><i class="iconfont icon-consumer"></i>客户</b-nav-item>
+                       <b-nav-item to="/contract"><i class="iconfont icon-sell"></i>合同</b-nav-item>
+                       <b-nav-item to="/trade"><i class="iconfont icon-buy"></i>交易</b-nav-item>
+                    <!--<b-nav-item to="/monitor"><i class="iconfont icon-monitor"></i>监控</b-nav-item>-->
                     <b-nav-item to="/forecast"><i class="iconfont icon-divine"></i>预测</b-nav-item>
-                    <b-nav-item><i class="iconfont icon-buy"></i>购电</b-nav-item>
-                    <b-nav-item><i class="iconfont icon-sell"></i>售电</b-nav-item>
-                    <b-nav-item to="/customer"><i class="iconfont icon-consumer"></i>客户</b-nav-item>
+                   <!--	<b-nav-item><i class="iconfont icon-buy"></i>购电</b-nav-item>-->
+                    <b-nav-item to="/accountnumber"><i class="iconfont icon-users"></i>计量</b-nav-item>
                     <b-nav-item to="/equipment"><i class="iconfont icon-device"></i>设备</b-nav-item>
-                    <b-nav-item to="/accountnumber"><i class="iconfont icon-users"></i>账号</b-nav-item>
-                    <b-nav-item><i class="iconfont icon-service"></i>客服</b-nav-item>
-                    <b-nav-item><i class="iconfont icon-setting"></i>系统</b-nav-item>
+                    <b-nav-item><i class="iconfont icon-setting"></i>设置</b-nav-item>
+                    <!--<b-nav-item to="/accountnumber"><i class="iconfont icon-users"></i>账号</b-nav-item>
+                    <b-nav-item><i class="iconfont icon-service"></i>客服</b-nav-item>-->
+                    
                 </b-nav>
         </div>
         <div class="app-content">

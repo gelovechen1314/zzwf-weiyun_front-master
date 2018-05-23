@@ -5,6 +5,8 @@ import * as types from '../store/types'
 const Home  = r => require.ensure([], () => r(require('../components/Home.vue')), 'home')
 const Dashboard  = r => require.ensure([], () => r(require('../components/Dashboard.vue')), 'dashboard')
 const Login  = r => require.ensure([], () => r(require('../components/Login.vue')), 'login')
+const Trade  = r => require.ensure([], () => r(require('../components/trade/Trade.vue')), 'trade')
+const Contract  = r => require.ensure([], () => r(require('../components/contract/Contract.vue')), 'contract')
 const Monitor  = r => require.ensure([], () => r(require('../components/monitor/Monitor.vue')), 'monitor')
 const Customer  = r => require.ensure([], () => r(require('../components/customer/Customer.vue')), 'customer')
 const Customermanagement  = r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')
@@ -51,6 +53,36 @@ const routes = [
                         path: '/monitor/requirementanalysis',
                         component: r => require.ensure([], () => r(require('../components/monitor/Requirementanalysis.vue')), 'monitor')
                     },
+                ]
+            },
+            {
+                path: '/trade',
+                component: Trade,
+                children:[
+                	{
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/trade/index.vue')), 'trade')
+                    },
+                 	{
+                        path: '/trade/transactionprofile',
+                        component: r => require.ensure([], () => r(require('../components/trade/Transactionprofile.vue')), 'trade')
+                    },
+                    {
+                        path: '/trade/longassociatmanagement',
+                        component: r => require.ensure([], () => r(require('../components/trade/Longassociatmanagement.vue')), 'trade')
+                    },
+                   
+                ]
+            },
+            {
+                path: '/contract',
+                component: Contract,
+                children:[
+                 	{
+                        path: '/',
+                        component: r => require.ensure([], () => r(require('../components/contract/Index.vue')), 'contract')
+                    },
+                   
                 ]
             },
              {

@@ -2,13 +2,13 @@
     <div class="hbox">
         <div class="col left">
             <div class="header">
-                	客户中心
+                	合同
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                	 <b-nav-item to="/customer/supplier">客户概况</b-nav-item>
-                    <b-nav-item to="/customer/customerinformation" >客户信息</b-nav-item>
-                    <b-nav-item to="/customer/customermanagement/">客户管理</b-nav-item>
+                	 <b-nav-item>售电合同</b-nav-item>
+                    <b-nav-item >长协合同</b-nav-item>
+                    <b-nav-item >合同模板</b-nav-item>
                    
                 </b-nav>
             </div>
