@@ -27,7 +27,7 @@
 </script>
 <style scoped="scoped">
 	.col{
-		padding-bottom:20px;
-		background:#f0f0f1;
+		background:#f0f0f0;
+		height:100%;
 	}
 </style>

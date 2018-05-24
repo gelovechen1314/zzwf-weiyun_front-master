@@ -10,6 +10,9 @@
 
 <script>
 	import "../../assets/css/com.css"
+	export default{
+		
+	}
 </script>
 
 <style>

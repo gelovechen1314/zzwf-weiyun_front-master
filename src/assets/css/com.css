@@ -6,6 +6,7 @@
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
+		
 	}
 	
 	.titleHea:after {
@@ -21,6 +22,9 @@
 		display: inline-block;
 		padding: 0px 20px;
 		line-height: 56px;
+		font-size:20px;
+		color:#495060;
+		font-family: "微软雅黑";
 		/*border-bottom: 2px solid #0099ff;*/
 	}
 	.titleHea h6 {
@@ -34,11 +38,24 @@
 		display: block;
 		float: right;
 		text-align: right;
-		width: 80%;
+		width: 70%;
 		line-height: 56px;
 		font-size: 14px;
 		position:relative;
 	}
+	.dateCon{
+		position: relative;
+		right:-60px;
+		
+	}
+	/*.el-picker-panel__body{
+		position:relative;
+		left:-80px;
+	}
+	.el-picker-panel__body-wrapper{
+		position:absolute;
+		left:0px;
+	}*/
 	.titleHea p input{
 		height:30px;
 		border:none;
