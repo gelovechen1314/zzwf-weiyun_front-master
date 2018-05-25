@@ -11,7 +11,7 @@
                     <b-nav-item to="/trade/customermanagement/">模拟竞价</b-nav-item>
                     <b-nav-item to="/trade/longassociatmanagement" >长协管理</b-nav-item>
                     <b-nav-item to="/trade/customermanagement/">购电详情</b-nav-item>
-                   <b-nav-item to="/trade/customerinformation" >电厂计划</b-nav-item>
+                   <b-nav-item to="/trade/powerplantplan" >电厂计划</b-nav-item>
                     <b-nav-item to="/trade/customermanagement/">电厂剩余电量</b-nav-item>
                 </b-nav>
             </div>

@@ -76,6 +76,10 @@ const routes = [
                         path: '/trade/addlongassociate',
                         component: r => require.ensure([], () => r(require('../components/trade/Addlongassociate.vue')), 'trade')
                     },
+                    {
+                        path: '/trade/powerplantplan',
+                        component: r => require.ensure([], () => r(require('../components/trade/Powerplantplan.vue')), 'trade')
+                    },
                    
                 ]
             },
@@ -86,6 +90,10 @@ const routes = [
                  	{
                         path: '/',
                         component: r => require.ensure([], () => r(require('../components/contract/Index.vue')), 'contract')
+                    },
+                    {
+                        path: '/contract/contractelectricity',
+                        component: r => require.ensure([], () => r(require('../components/contract/Contractelectricity.vue')), 'contract')
                     },
                    
                 ]

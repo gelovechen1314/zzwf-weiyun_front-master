@@ -240,6 +240,7 @@
 		font-family: "微软雅黑";
 		color: #495060;
 		font-size: 20px;
+		font-weight: 900;
 	}
 	
 	.formCon {

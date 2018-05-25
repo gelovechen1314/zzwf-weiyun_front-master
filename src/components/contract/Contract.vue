@@ -6,7 +6,7 @@
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                	 <b-nav-item>售电合同</b-nav-item>
+                	 <b-nav-item to="/contract/contractelectricity">售电合同</b-nav-item>
                     <b-nav-item >长协合同</b-nav-item>
                     <b-nav-item >合同模板</b-nav-item>
                    

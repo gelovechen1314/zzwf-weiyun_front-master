@@ -254,6 +254,8 @@
 		line-height: 55px;
 		padding-left: 20px;
 		color: #495060;
+		font-weight: 900;
+		font-family: "微软雅黑";
 	}
 	
 	.btnMain {
