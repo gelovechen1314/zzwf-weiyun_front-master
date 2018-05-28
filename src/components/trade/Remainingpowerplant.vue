@@ -1,7 +1,7 @@
 <template>
 	<div class="contentCon">
 		<div class="header titleHea">
-			<span>电厂发电计划</span>
+			<span>发电集团剩余电量</span>
 		</div>
 		<div class="searchCon">
 			<p>
@@ -14,37 +14,21 @@
 		</div>
 		<div class="tablbWrap">
 			<el-table size="mini" row-class-name="rowTr" class="tableTop" :data="tableData" style="width: 100%" :default-sort="{prop: 'date', order: 'descending'}" >
-				<el-table-column   prop="date" label="电厂名称" :formatter="formatter" sortable width="230">
+				<el-table-column   prop="date" label="电厂名称" :formatter="formatter" sortable width="280">
 				</el-table-column>
-				<el-table-column prop="name" label="一月" width="65">
+				<el-table-column prop="name" label="所属发电集团" width="180">
 				</el-table-column>
-				<el-table-column prop="name" label="二月" width="65">
+				<el-table-column prop="name" label="发电方式" width="120">
 				</el-table-column>
-				<el-table-column prop="name" label="三月"width="65" >
+				<el-table-column prop="name" label="机组容量"width="120" >
 				</el-table-column>
-				<el-table-column prop="name" label="四月" width="65">
+				<el-table-column prop="name" label="年底可发电量" width="100">
 				</el-table-column>
-				<el-table-column prop="name" label="五月"width="65" >
+				<el-table-column prop="sum" label="已售电量"width="100" >
 				</el-table-column>
-				<el-table-column prop="name" label="六月"width="65" >
+				<el-table-column prop="sum" label="剩余电量"width="100" >
 				</el-table-column>
-				<el-table-column prop="name" label="七月"width="65" >
-				</el-table-column>
-				<el-table-column prop="name" label="八月"width="65" >
-				</el-table-column>
-				<el-table-column prop="name" label="九月"width="65" >
-				</el-table-column>
-				<el-table-column prop="name" label="十月"width="65" >
-				</el-table-column>
-				<el-table-column prop="name" label="十一月"width="60" >
-				</el-table-column>
-				<el-table-column prop="name" label="十二月"width="65" >
-				</el-table-column>
-				<el-table-column prop="sum" label="合计"width="65" >
-				</el-table-column>
-				<el-table-column prop="sum" label="签约电量"width="65" >
-				</el-table-column>
-				<el-table-column prop="sum" label="签约价格"width="70" >
+				<el-table-column prop="sum" label="图示"width="180" >
 				</el-table-column>
 			</el-table>
 		</div>

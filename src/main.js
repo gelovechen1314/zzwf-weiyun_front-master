@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import axios from './config/http'
 import store from './store/store'
 import App from './App.vue'
+import modal from './components/common/modal/index.vue'
 import headerBar from './components/common/headerBar.vue'
 import headerLong from './components/common/headerLong.vue'
 import longBheader from './components/common/longBheader.vue'
@@ -24,7 +25,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import "./assets/css/app.css"
 Vue.use(BootstrapVue)
 Vue.use(ElementUI)
-//公用组件在此注册，之后使用就不需要导包
+//公用组件在此注册，之后使用就不需要导包\
+Vue.component('modal', modal);
 Vue.component('headerBar', headerBar);
 Vue.component('headerLong', headerLong);
 Vue.component('longBheader', longBheader);

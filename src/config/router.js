@@ -80,6 +80,14 @@ const routes = [
                         path: '/trade/powerplantplan',
                         component: r => require.ensure([], () => r(require('../components/trade/Powerplantplan.vue')), 'trade')
                     },
+                     {
+                        path: '/trade/remainingpowerplant',
+                        component: r => require.ensure([], () => r(require('../components/trade/Remainingpowerplant.vue')), 'trade')
+                    },{
+                        path: '/trade/powerpurchasedetails',
+                        component: r => require.ensure([], () => r(require('../components/trade/Powerpurchasedetails.vue')), 'trade')
+                    },
+                    
                    
                 ]
             },

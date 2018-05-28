@@ -111,7 +111,7 @@
 				</div>
 			</div>
 			<!--分页-->
-			<div class="paginationPage">
+			<div class="paginationPageCon">
 				<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :background='true' :current-page="currentPage4" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
 				</el-pagination>
 			</div>
@@ -586,7 +586,7 @@
 		font-family: "微软雅黑";
 		color: #495060;
 	}
-	.paginationPage{
+	.paginationPageCon{
 		margin:10px auto 30px;
 		width:100%;
 		text-align: center;
