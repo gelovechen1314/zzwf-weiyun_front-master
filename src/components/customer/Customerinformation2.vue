@@ -106,6 +106,7 @@
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
+		zoom:1;
 	}
 	
 	.titleHea:after {

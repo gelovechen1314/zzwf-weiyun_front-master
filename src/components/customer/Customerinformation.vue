@@ -5,11 +5,16 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-button class="addBtn"  @click="showEditModal()" type="primary">+客户合同</el-button>
-				<el-input placeholder="请输入内容" v-model="input23">
+				<el-button class="addBtn" @click="showEditModal()" type="primary">+客户合同</el-button>
+				<el-select class="selectCon" v-model="value" placeholder="请选择">
+					<el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value">
+					</el-option>
+				</el-select>
+				<el-input class="input" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
 				<el-button class="seraBtn" plain type="primary">搜索</el-button>
+				<el-cascader class="selecArea" separator="" :options="options2" @active-item-change="handleItemChange" :props="props"></el-cascader>
 			</p>
 			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
 		</div>
@@ -139,12 +144,12 @@
 								<el-form-item label="分成比例" prop="name">
 									<el-col :span="11">
 										<el-form-item label="乙方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 									<el-col :span="11">
 										<el-form-item label="甲方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 								</el-form-item>
@@ -176,12 +181,12 @@
 								<el-form-item label="分成比例" prop="name">
 									<el-col :span="11">
 										<el-form-item label="乙方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 									<el-col :span="11">
 										<el-form-item label="甲方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 								</el-form-item>
@@ -195,13 +200,14 @@
 						<div class="basicFormMsg">
 							<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 								<el-form-item label="合同上传" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
-										</el-form-item>
+									<el-input v-model="ruleForm.name"></el-input>
+								</el-form-item>
 							</el-form>
 						</div>
 					</div>
 					<div class="submitBtn">
-						<el-button class="confirm" type="primary">确定</el-button><el-button @click="close2()" class="cancel" plain>取消</el-button>
+						<el-button class="confirm" type="primary">确定</el-button>
+						<el-button @click="close2()" class="cancel" plain>取消</el-button>
 					</div>
 				</div>
 			</div>
@@ -216,7 +222,37 @@
 	export default {
 		data() {
 			return {
+				options1: [{
+					value: '选项1',
+					label: '黄金糕'
+				}, {
+					value: '选项2',
+					label: '双皮奶'
+				}, {
+					value: '选项3',
+					label: '蚵仔煎'
+				}, {
+					value: '选项4',
+					label: '龙须面'
+				}, {
+					value: '选项5',
+					label: '北京烤鸭'
+				}],
+				value: '',
 				value6: [],
+				options2: [{
+					label: '江苏',
+					cities: []
+				}, {
+					label: '浙江',
+					cities: []
+				}],
+				props: {
+					value: 'label',
+					children: 'cities'
+				},
+				selectedOptions: [],
+				selectedOptions2: [],
 				ruleForm: {
 					name: '',
 					region: '',
@@ -302,6 +338,20 @@
 			}
 		},
 		methods: {
+			handleItemChange(val) {
+				console.log('active item:', val);
+				setTimeout(_ => {
+					if(val.indexOf('江苏') > -1 && !this.options2[0].cities.length) {
+						this.options2[0].cities = [{
+							label: '南京'
+						}];
+					} else if(val.indexOf('浙江') > -1 && !this.options2[1].cities.length) {
+						this.options2[1].cities = [{
+							label: '杭州'
+						}];
+					}
+				}, 300);
+			},
 			open4(index, flag) {
 				this.flag = flag;
 			},
@@ -370,7 +420,6 @@
 	
 	.btnMain {
 		height: 40px;
-		
 	}
 	
 	.titleHea span {
@@ -383,13 +432,19 @@
 	
 	.searchCon p {
 		display: inline-block;
-		width:40%;
+		width: 40%;
 		height: 38px;
 		position: relative;
 	}
 	
 	.searchCon span {
 		float: right;
+	}
+	
+	.input {
+		position: absolute;
+		left: 230px;
+		top: 0px;
 	}
 	
 	.el-icon {
@@ -404,27 +459,46 @@
 	.el-icon-refresh {
 		margin-right: 10px;
 	}
-	.addBtn{
+	
+	.addBtn {
 		position: absolute;
-		left: -100px;
+		left: 0px;
 		height: 40px;
 		top: 0px;
 		border-radius: 0px;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
 	}
+	
 	.seraBtn {
 		position: absolute;
-		background:none;
-		right: 0px;
+		background: none;
+		right: -110px;
 		height: 40px;
 		top: 0px;
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 	}
-	.el-input{
-		width:60%;
+	
+	.selecArea {
+		position: absolute;
+		background: none;
+		right: -315px;
+		height: 40px;
+		top: 0px;
+		border-radius: 0px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+	
+	.selectCon {
+		position: absolute;
+		left: 109px;
+	}
+	
+	.el-input {
+		width: 60%;
 	}
 	
 	.el-icon-search {
@@ -535,7 +609,7 @@
 		background: #fff;
 		position: absolute;
 		top: 100px;
-		height:85%;
+		height: 85%;
 		overflow-y: scroll;
 		border-radius: 5px;
 		padding-bottom: 20px;
@@ -585,18 +659,20 @@
 		padding-left: 82px;
 		width: 54%;
 	}
-	.submitBtn{
-		width:100%;
-		padding-top:15px;
-		border-top:1px solid #e9eaec;
-		
+	
+	.submitBtn {
+		width: 100%;
+		padding-top: 15px;
+		border-top: 1px solid #e9eaec;
 	}
-	.cancel{
-		float:right;
-		margin-right:10px;
+	
+	.cancel {
+		float: right;
+		margin-right: 10px;
 	}
-	.confirm{
-		float:right;
-		margin-right:20px;
+	
+	.confirm {
+		float: right;
+		margin-right: 20px;
 	}
 </style>
