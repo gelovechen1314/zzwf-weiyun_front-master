@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="contentWrap">
 		<div class="header titleHea">
 			<span>客户总览</span>
 			<p>
@@ -7,7 +7,7 @@
 		</div>
 		<div class="wrapper-md wrapperCon">
 			<div class="wrapperTop">
-				<headerLong class="txtCon">
+				<headerLong class="txtCon" style="margin-bottom:10px;">
 					<p slot="headerBar">30天客户增长情况</p>
 				</headerLong>
 				<div class="timeBox">
@@ -201,6 +201,10 @@
 	}
 </script>
 <style scoped>
+	.contentWrap{
+		height:100%;
+		overflow: auto;
+	}
 	.titleHea {
 		padding: 0px;
 		height: 58px;
@@ -253,6 +257,7 @@
 		width: 100%;
 		height: 34px;
 		line-height: 34px;
+		
 	}
 	
 	.timeBox {

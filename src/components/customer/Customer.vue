@@ -6,7 +6,7 @@
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                	 <b-nav-item to="/customer/supplier">客户概况</b-nav-item>
+                	<b-nav-item to="/customer/supplier">客户概况</b-nav-item>
                     <b-nav-item to="/customer/customerinformation" >客户信息</b-nav-item>
                     <b-nav-item to="/customer/customermanagement/">客户管理</b-nav-item>
                    
@@ -24,7 +24,8 @@
 </script>
 <style scoped="scoped">
 	.col{
-		padding-bottom:20px;
-		
+		margin-bottom:20px;
+		height:100%;
+		overflow-y: auto;
 	}
 </style>

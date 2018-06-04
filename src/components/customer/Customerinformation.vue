@@ -30,17 +30,17 @@
 				</el-table-column>
 				<el-table-column prop="name" label="合同编号" width="90">
 				</el-table-column>
-				<el-table-column prop="address" label="企业名称" width="140" show-overflow-tooltip>
+				<el-table-column prop="address" label="企业名称" width="120" show-overflow-tooltip>
 				</el-table-column>
 				<el-table-column prop="name" label="分成比例" width="60">
 				</el-table-column>
-				<el-table-column prop="name" label="合同周期" width="120">
+				<el-table-column prop="name" label="合同周期" width="100">
 				</el-table-column>
 				<el-table-column prop="name" label="合同电量" width="100">
 				</el-table-column>
 				<el-table-column prop="name" label="最大负荷" width="80">
 				</el-table-column>
-				<el-table-column prop="name" label="合同联系人及联系电话" width="150">
+				<el-table-column prop="name" label="合同联系人及联系电话" width="120">
 				</el-table-column>
 
 				<el-table-column prop="tag" label="合同状态" width="100" :filters="[{ text: '已到期', value: '已到期' }, { text: '进行中', value: '进行中' },{ text: '未开始', value: '未开始'}]" :filter-method="filterTag" filter-placement="bottom-end">
@@ -48,7 +48,7 @@
 						<el-tag :type="scope.row.tag === '家' ? 'primary' : 'success'" disable-transitions>{{scope.row.tag}}</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column prop="tag" label="绑定状态" width="100" :filters="[{ text: '未绑定', value: '未绑定' }, { text: '已绑定', value: '已绑定' },{ text: '提交中', value: '提交中'},{ text: '驳回', value: '驳回'}]" :filter-method="filterTag" filter-placement="bottom-end">
+				<el-table-column prop="tag" label="绑定状态" width="80" :filters="[{ text: '未绑定', value: '未绑定' }, { text: '已绑定', value: '已绑定' },{ text: '提交中', value: '提交中'},{ text: '驳回', value: '驳回'}]" :filter-method="filterTag" filter-placement="bottom-end">
 					<template slot-scope="scope">
 						<el-tag :type="scope.row.tag === '家' ? 'primary' : 'success'" disable-transitions>{{scope.row.tag}}</el-tag>
 					</template>
@@ -58,19 +58,14 @@
 						<el-tag :type="scope.row.tag === '家' ? 'primary' : 'success'" disable-transitions>{{scope.row.tag}}</el-tag>
 					</template>
 				</el-table-column>
-				<el-table-column prop="tag" label="操作" width="80">
+				<el-table-column prop="tag" label="操作" width="140">
 					<template slot-scope="scope">
-						<el-button @click="open4(scope.$index,true)" type="text" size="small">
+						<el-button style="display:inline-block;" @click="open4(scope.$index,true)" type="text" size="small">
 							备注
 						</el-button>
-						<el-button @click="open2()" type="text" size="small">
-							审
-						</el-button>
-						<el-button @click="showEditModal(scope.$index)" type="text" size="small">
-							修
-						</el-button>
-						<el-button @click.native.prevent="deleteRow(scope.$index, tableData3)" type="text" size="small">
-							删
+						<router-link style="color:#409EFF;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">修改</router-link>
+						<el-button style="display:inline-block;" @click="open2()" type="text" size="small">
+							删除
 						</el-button>
 					</template>
 				</el-table-column>
@@ -99,7 +94,7 @@
 					<h6>备注内容</h6>
 				</div>
 				<div class="beiZmsg">
-
+					
 				</div>
 			</div>
 		</modal>

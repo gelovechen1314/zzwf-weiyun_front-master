@@ -151,6 +151,7 @@
 		right: 0px;
 		height: 40px;
 		top: 0px;
+		background:#409eff;
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;

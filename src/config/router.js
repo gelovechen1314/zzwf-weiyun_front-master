@@ -164,6 +164,10 @@ const routes = [
                         path: '/customer/supplier',
                         component: r => require.ensure([], () => r(require('../components/customer/Supplier.vue')), 'customer')
                     },
+                     {
+                        path: '/customer/modifyconsumerinfo',
+                        component: r => require.ensure([], () => r(require('../components/customer/Modifyconsumerinfo.vue')), 'customer')
+                    },
                    
                     
                     

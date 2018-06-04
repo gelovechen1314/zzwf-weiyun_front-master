@@ -1,7 +1,7 @@
 <template>
 	<div class="contentCon">
 		<div class="headerCon">
-			<a href="/trade/longassociatmanagement"><i class="el-icon-arrow-left"></i><span>返回</span></a>
+			<router-link to="/trade/longassociatmanagement"><i class="el-icon-arrow-left"></i><span>返回</span></router-link>
 			<h5>添加长协合同</h5>
 		</div>
 		<div class="formCon">
@@ -155,7 +155,7 @@
 					<div class="btnCon">
 						<el-button class="btnB" type="primary">保存并继续添加</el-button>
 						<el-button class="btnB"  type="primary">保存</el-button>
-						<el-button class="btnB"  plain>取消</el-button>
+						<router-link to="/trade/longassociatmanagement" style="text-decoration: none;border-radius:5px;background:#409EFF;padding:9px 20px;font-size:14px;color:#fff;">取消</router-link>
 					</div>
 				</div>
 			</form>
