@@ -2,21 +2,21 @@
 	<div class="hbox">
         <div class="col left">
             <div class="header">
-                	设备管理
+                	设备概况
             </div>
             <div class="wrapper">
                 <b-nav pills vertical>
-                    <b-nav-item to="/equipment/customerinstallinformation">客户安装信息</b-nav-item>
-                    <b-nav-item to="/equipment/equipmentmanagement">设备管理</b-nav-item>
-                    <b-nav-item  to="/equipment/collectstatestatistics" >采集状态统计</b-nav-item>
-                     <b-nav-item to="/equipment/terminalinformation" >终端信息</b-nav-item>
+                   <!-- <b-nav-item to="/equipment/equipmentmanagement">设备</b-nav-item>-->
+                    <b-nav-item  to="/equipment/collectstatestatistics" >统计状态</b-nav-item>
+                     <b-nav-item to="/equipment/terminalinformation" >设备信息</b-nav-item>
+                      <b-nav-item to="/equipment/customerinstallinformation">设备申请</b-nav-item>
                 </b-nav>
             </div>
         </div>
         <div class="col">
            <router-view></router-view>
         </div>
-        <div class="col right">
+        <!--<div class="col right">
 			<div class="header">
 				选择企业
 			</div>
@@ -28,7 +28,7 @@
 			</form>
 			<TreeList :data="companys" noDots  @item-click="itemClick" ref="tree"></TreeList>
 			</div>
-		</div>
+		</div>-->
         
     </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
 	<div class="contentCon">
 		<div class="headerCon">
-			<router-link to="/trade/longassociatmanagement"><i class="el-icon-arrow-left"></i><span>返回</span></router-link>
+			<router-link to="/customer/customerinformation"><i class="el-icon-arrow-left"></i><span>返回</span></router-link>
 			<h5 style="font-size:18px;">修改客户信息</h5>
 		</div>
 		<div class="formCon">
@@ -17,7 +17,7 @@
 									<el-input class="formInput"  v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 								<el-form-item label="所属行业">
-									<el-cascader class="formInput"  :options="options" v-model="selectedOptions" @change="handleChange">
+									<el-cascader style="width:170px;" class="formInput"  :options="options" v-model="selectedOptions" @change="handleChange">
 									</el-cascader>
 								</el-form-item>
 								
@@ -32,7 +32,7 @@
 									<el-input class="formInput"  v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 								<el-form-item  label="客户负责人" required>
-									<el-cascader class="formInput"  :options="options" v-model="selectedOptions" @change="handleChange">
+									<el-cascader style="width:170px;" class="formInput"  :options="options" v-model="selectedOptions" @change="handleChange">
 									</el-cascader>
 								</el-form-item>
 							</el-form>
@@ -45,55 +45,72 @@
 					<div class="mainCon">
 						<div class="leftFrom">
 							<el-form class="form" :label-position="right" label-width="130px" size="mini" :model="formLabelAlign">
-								<el-form-item label="营业执照注册号" :rules="[
-						      { required: true, message: '名称不能为空'},
+								<el-form-item size="mini"  label="营业执照注册号" :rules="[
+						      {message: '名称不能为空'},
 						      { type: 'string', message: '名称必须为字符串'}
 						    ]">
-									<el-input class="formInput"  v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请输入15位或18位的统一社会信用代码" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 								<el-form-item label="法人身份证号" :rules="[
-						      { required: true, message: '名称不能为空'},
+						      {message: '名称不能为空'},
 						      { type: 'string', message: '名称必须为字符串'}
 						    ]">
-									<el-input class="formInput" v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请输入有效身份证号" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 								<el-form-item label="交易中心账号" :rules="[
-						      { required: true, message: '名称不能为空'},
+						      {  message: '名称不能为空'},
 						      { type: 'string', message: '名称必须为字符串'}
 						    ]">
-									<el-input class="formInput" v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请如实填写" v-model="formLabelAlign.name"></el-input>
+								</el-form-item>
+								<el-form-item label="交易中心密码" :rules="[
+						      {  message: '名称不能为空'},
+						      { type: 'string', message: '名称必须为字符串'}
+						    ]">
+									<el-input class="formInput" placeholder="请如实填写" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 							</el-form>
 						</div>
 						<div class="rightForm">
-							<el-form class="form" :label-position="right" label-width="130px" size="mini" :model="formLabelAlign">
-								<el-form-item label="法人代表姓名" :rules="[
-						      { required: true, message: '名称不能为空'},
+							<el-form class="form" :label-position="right" label-size="12px" label-width="130px" size="mini" :model="formLabelAlign">
+								<el-form-item label="与营业执照上一致" :rules="[
+						      { message: '名称不能为空'},
 						      { type: 'string', message: '名称必须为字符串'}
 						    ]">
-									<el-input class="formInput" v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请如实填写" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
-								<el-form-item label="注册资本" :rules="[
-						      { required: true, message: '价格不能为空'},
+								<el-form-item style="font-size:12px;" label="注册资本" :rules="[
+						      {  message: '价格不能为空'},
 						      { type: 'number', message: '价格必须为字符串'}
 						    ]">
-									<el-input class="formInput" v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请如实填写" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
-								<el-form-item label="法人身份证号" :rules="[
-						      { required: true, message: '名称不能为空'},
+								<el-form-item label="成立日期" :rules="[
+						      {  message: '名称不能为空'},
 						      { type: 'string', message: '名称必须为字符串'}
 						    ]">
-									<el-input class="formInput" v-model="formLabelAlign.name"></el-input>
+									<el-input class="formInput" placeholder="请如实填写 格式2011-1-1" v-model="formLabelAlign.name"></el-input>
+								</el-form-item>
+								<el-form-item label="客户产品" :rules="[
+						      {  message: '名称不能为空'},
+						      { type: 'string', message: '名称必须为字符串'}
+						    ]">
+									<el-input class="formInput" placeholder="请如实填写" v-model="formLabelAlign.name"></el-input>
 								</el-form-item>
 							</el-form>
 						</div>
 					</div>
+					<div class="area" style="width:100%;height:30px;">
+						<area-select :level='2' type="text" size="small" v-modal="selected"></area-select>
+					</div>
 				</div>
 
 				<div class="main">
+					
 					<div class="btnCon">
+						
 						<el-button class="btnB" type="primary">保存</el-button>
-						<el-button class="btnB" plain>取消</el-button>
+						<router-link class="btnB" style="text-decoration:none;border:1px solid #409EFF;padding:9px 20px;border-radius:5px;" to="/customer/customerinformation">取消</router-link>
 					</div>
 				</div>
 			</form>
@@ -107,6 +124,9 @@
 			return {
 				labelPosition: 'right',
 				date1: '',
+				selected:[
+				'440000','440300','440305'
+				],
 				options: [{
 					value: 'zhinan',
 					label: '指南',
@@ -376,7 +396,9 @@
 		font-size: 20px;
 		font-weight: 900;
 	}
-	
+	.form{
+		font-size:12px;
+	}
 	.formCon {
 		margin: 10px 20px 10px 10%;
 	}
@@ -481,7 +503,7 @@
 	}
 	
 	.btnCon {
-		width: 60%;
+		width: 100%;
 		text-align: center;
 		margin-bottom: 100px;
 		margin-top: 20px;

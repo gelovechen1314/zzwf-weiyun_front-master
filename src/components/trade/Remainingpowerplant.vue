@@ -5,10 +5,10 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-input placeholder="请输入内容" v-model="input23">
+				<el-input class="inptClass" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
-				<el-button class="seraBtn" type="primary">搜索</el-button>
+				<el-button class="seraBtn3" type="primary">搜索</el-button>
 			</p>
 			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
 		</div>
@@ -130,7 +130,7 @@
 		margin-right: 10px;
 	}
 	
-	.seraBtn {
+	.seraBtn3 {
 		position: absolute;
 		right: 0px;
 		height: 40px;
@@ -139,6 +139,10 @@
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+	}
+	.inptClass{
+		width:100%;
+		left:0px;
 	}
 	
 	.el-icon-search {

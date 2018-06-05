@@ -6,7 +6,7 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-input placeholder="请输入内容" v-model="input23">
+				<el-input class="input" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
 				<el-button class="seraBtn" type="primary">搜索</el-button>
@@ -389,7 +389,11 @@
 		height: 38px;
 		position: relative;
 	}
-	
+	.searchCon p .input{
+		width:100%;
+		left:0px;
+		top:0px;
+	}
 	.searchCon span {
 		float: right;
 	}
