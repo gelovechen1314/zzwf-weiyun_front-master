@@ -5,7 +5,9 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-button class="addBtn" @click="showEditModal()" type="primary">+客户合同</el-button>
+				<el-button class="addBtn" type="primary">
+					<router-link style="color:#fff;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">+客户合同</router-link>
+				</el-button>
 				<el-select class="selectCon" v-model="value" placeholder="请选择">
 					<el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value">
 					</el-option>
@@ -63,10 +65,10 @@
 						<el-button style="display:inline-block;" @click="open4(scope.$index,true)" type="text" size="small">
 							备注
 						</el-button>
-						<router-link style="color:#409EFF;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">修改</router-link>
+						<!--<router-link style="color:#409EFF;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">修改</router-link>
 						<el-button style="display:inline-block;" @click="open2()" type="text" size="small">
 							删除
-						</el-button>
+						</el-button>-->
 					</template>
 				</el-table-column>
 			</el-table>
@@ -93,8 +95,14 @@
 				<div class="txtCon">
 					<h6>备注内容</h6>
 				</div>
-				<div class="beiZmsg">
-					
+				<div class="beiZmsg" id="beiZmsg">
+					<div id="wrap">
+						<div id="content"></div>
+					</div>
+					<div class="con"><span>添加备注：</span><textarea id="text"></textarea><button class="btnSave">保存</button></div>
+					<div class="btmBtn">
+						<button class="cancelBtn"> 取消</button><button @click="submitCon" id="sureBtn" class="sureBtn">确定</button>
+					</div>
 				</div>
 			</div>
 		</modal>
@@ -322,6 +330,9 @@
 			modal,
 
 		},
+		mounted() {
+			this.creatDiv()
+		},
 		computed: {
 			close1() {
 				this.flag = false;
@@ -333,6 +344,35 @@
 			}
 		},
 		methods: {
+			submitCon(){
+				var oBox = $("#beiZmsg");
+				var oWrap = $("#wrap");
+				var oDl = $("#content");
+				var oContent = $("#content");
+				var txt = $("#text").val();
+					console.log($("#text").val())
+					var oDl = document.createElement("dl");
+					var od = document.createElement("dd");
+					var txt1 = document.createTextNode(txt);
+					var oT = document.createElement("dt");
+					var img = "<img src='img/pic-5.jpg'>";
+					oT.innerHTML = img;
+					od.appendChild(txt1);
+					oDl.appendChild(od);
+					oDl.appendChild(oT);
+					$("#content").append(oDl);
+					$("#text").value="";
+					var scrollTop = oContent.offsetHeight - oWrap.offsetHeight;
+					oWrap.scrollTop = scrollTop;
+			},
+			creatDiv() {
+				
+				 $("#sureBtn").click(function(){
+				 	alert('111')
+				 	
+				 })
+				
+			},
 			handleItemChange(val) {
 				console.log('active item:', val);
 				setTimeout(_ => {
@@ -548,6 +588,7 @@
 		position: absolute;
 		top: 0px;
 		min-height: 200px;
+		border-radius: 5px;
 	}
 	
 	.titleCon {
@@ -595,6 +636,82 @@
 		color: #495060;
 		font-family: "微软雅黑";
 		font-weight: 900;
+	}
+	
+	.beiZmsg {
+		padding: 10px 0px;
+	}
+	
+	#wrap {
+		height: 300px;
+		overflow: hidden;
+		overflow-y: auto;
+		margin: 0 auto;
+	}
+	
+	.con {
+		padding: 10px 20px;
+	}
+	
+	.con span {
+		font-size: 12px;
+		color: #999;
+	}
+	
+	#text {
+		width: 80%;
+		height: 80px;
+		border: 1px solid #dddee1;
+		border-radius: 5px;
+		font-size: 14px;
+		color: #999;
+		padding: 5px 10px;
+	}
+	
+	#text:hover {
+		border: 1px solid #2d8cf0;
+	}
+	
+	.btnSave {
+		color: #2d8cf0;
+		border: none;
+		background: none;
+		outline: none;
+		font-size: 12px;
+	}
+	
+	.btmBtn {
+		width: 100%;
+		border-top: 1px solid #e9eaec;
+		padding: 10px 0px;
+		text-align: right;
+		padding-right: 20px;
+	}
+	
+	.btmBtn button {
+		padding: 10px 20px;
+		border: none;
+		font-size: 14px;
+	}
+	
+	.cancelBtn {
+		color: #999;
+		background: #fff;
+		margin-right: 10px;
+		border: 1px solid #fff;
+	}
+	
+	.cancelBtn:hover {
+		color: #2d8cf0;
+		box-sizing: border-box;
+		border-color: #2d8cf0;
+		border-radius: 5px;
+	}
+	
+	.sureBtn {
+		background: #2d8cf0;
+		color: #fff;
+		border-radius: 5px;
 	}
 	/*修改合同弹窗*/
 	

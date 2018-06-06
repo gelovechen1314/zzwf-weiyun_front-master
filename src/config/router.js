@@ -182,8 +182,8 @@ const routes = [
                         component: r => require.ensure([], () => r(require('../components/equipment/Index.vue')), 'equipment')
                     },
                     {
-                        path: '/equipment/customerinstallinformation',
-                        component: r => require.ensure([], () => r(require('../components/equipment/Customerinstallinformation.vue')), 'equipment')
+                        path: '/equipment/equipmentapplication',
+                        component: r => require.ensure([], () => r(require('../components/equipment/Equipmentapplication.vue')), 'equipment')
                     },
                      {
                         path: '/equipment/equipmentmanagement',

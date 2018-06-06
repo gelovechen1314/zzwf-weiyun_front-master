@@ -2,7 +2,7 @@
 	<div class="contentCon">
 		<div class="headerCon">
 			<router-link to="/customer/customerinformation"><i class="el-icon-arrow-left"></i><span>返回</span></router-link>
-			<h5 style="font-size:18px;">修改客户信息</h5>
+			<h5 style="font-size:18px;">添加客户信息</h5>
 		</div>
 		<div class="formCon">
 			<form>

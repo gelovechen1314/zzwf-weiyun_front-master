@@ -2,6 +2,7 @@ import Vue from 'vue'
 import BootstrapVue from "bootstrap-vue"
 import ElementUI from 'element-ui'
 
+
 import axios from './config/http'
 import store from './store/store'
 import App from './App.vue'
@@ -20,15 +21,16 @@ Vue.prototype.axios = axios;
 Vue.prototype.echarts = echarts
 
 import TreeList from 'vue-jstree';
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue-area-linkage/dist/index.css'
 import "./assets/css/app.css"
+
 Vue.use(BootstrapVue)
 Vue.use(ElementUI)
 Vue.use(VueAreaLinkage)
+
 //公用组件在此注册，之后使用就不需要导包\
 Vue.component('modal', modal);
 Vue.component('headerBar', headerBar);

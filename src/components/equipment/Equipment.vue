@@ -9,7 +9,7 @@
                    <!-- <b-nav-item to="/equipment/equipmentmanagement">设备</b-nav-item>-->
                     <b-nav-item  to="/equipment/collectstatestatistics" >统计状态</b-nav-item>
                      <b-nav-item to="/equipment/terminalinformation" >设备信息</b-nav-item>
-                      <b-nav-item to="/equipment/customerinstallinformation">设备申请</b-nav-item>
+                      <b-nav-item to="/equipment/equipmentapplication">设备申请</b-nav-item>
                 </b-nav>
             </div>
         </div>
