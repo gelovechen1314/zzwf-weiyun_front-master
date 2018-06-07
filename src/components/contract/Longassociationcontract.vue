@@ -7,9 +7,8 @@
 		<div class="wrapper-md wrapperBox">
 			<div class="mainCon">
 				<div class="navLists">
-					<b-button class="btnA" to="/customer/customermanagement/">客户导入</b-button>
-					<b-button class="btnA" to="/customer/customermanagement/incrementalacquisition">增量采集</b-button>
-					<b-button class="btnA" to="/customer/customermanagement/customermigration">客户迁移</b-button>
+					<b-button class="btnA" to="/contract/longassociationcontract/">长协统计</b-button>
+					<b-button class="btnA" to="/contract/longassociationcontract/longassociatcontractchild">长协合同</b-button>
 				</div>
 				 <div class="con">
 				 	<router-view></router-view>
@@ -93,7 +92,7 @@
 		background:#edf1f2;
 	}
 	.mainCon{
-		background:#fff;
+		/*background:#fff;*/
 	}
 	.navLists{
 		width:100%;
@@ -119,7 +118,7 @@
 		line-height:42px;
 		padding:0px;
 		color:#000;
-		background:#fff;
+		background:#edf1f2;
 		float:left;
 		font-size:18px;
 		text-align: center;
@@ -136,19 +135,23 @@
 			color:#fff;
 			background:#0099ff;
 		}
-	.navLists .btnA a:active
+	/*.navLists .btnA a:active
 		{
 			color:#fff;
 			background:#0099ff;
-		}
+		}*/
 	.navLists .active
 		{
 			color:#fff;
 			background:#0099ff;
 		}
+	.navLists .btnA a:visited{
+		color:#000;
+		background:#edf1f2;
+	}
 	.con{
 		width:100%;
 		height:100%;
-		background:#fff;
+		background:#edf1f2;
 	}
 </style>

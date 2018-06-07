@@ -200,12 +200,13 @@
 		}
 	}
 </script>
-<style scoped>
+<style scoped="scoped">
 	.contentWrap{
 		height:100%;
 		overflow: auto;
 	}
 	.titleHea {
+		width:100%;
 		padding: 0px;
 		height: 58px;
 		display: -webkit-box;
@@ -226,14 +227,15 @@
 		display: inline-block;
 		padding: 0px 20px;
 		line-height: 58px;
+		width:140px;
 		border-bottom: 2px solid #0099ff;
 	}
 	
 	.titleHea p {
 		display: block;
 		float: right;
+		width:80%;
 		text-align: right;
-		width: 80%;
 		line-height: 58px;
 		font-size: 14px;
 	}

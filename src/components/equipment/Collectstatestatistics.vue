@@ -5,10 +5,10 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-input placeholder="请输入内容" v-model="input23">
+				<el-input style="width:100%;" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
-				<el-button class="seraBtn" type="primary">搜索</el-button>
+				<el-button class="seraBtn4" type="primary">搜索</el-button>
 			</p>
 			<span><el-checkbox v-model="checked" style="font-size:12px;margin-right:10px;">仅显示已掉线设备</el-checkbox> <i class="el-icon-refresh el-icon"></i></span>
 		</div>
@@ -152,7 +152,7 @@
 		margin-right: 10px;
 	}
 	
-	.seraBtn {
+	.seraBtn4 {
 		position: absolute;
 		right: 0px;
 		height: 40px;

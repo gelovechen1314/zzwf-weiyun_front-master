@@ -1,140 +1,358 @@
 <template>
 	<div class="contentCon">
 		<div class="header titleHea">
-			<span>年度电量预测</span>
-			<p>
-				<a href="/"><em class="iconfont">&#xe778;</em>首页</a>：<b>预测></b><b>年度电量预测</b></p>
+			<span>年度预测</span>
 		</div>
-		 <div class="panel">
-            <div class="panel-body tableCon">
-                <b-table striped hover :items="items" :fields="fields" :current-page="currentPage" :per-page="perPage" :filter="filter" @filtered="onFiltered">
-                    <template slot="id" slot-scope="data">
-                        <input @click.stop type="checkbox" :value="data.item.id" >
-                    </template>
-                    <template slot="opration" slot-scope="data">
-                        <b-link :href="'/customer/'+data.item.id">查看</b-link>
-                    </template>
-                </b-table>
-                <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" class="pager" />
-            </div>
-        </div>
-		
+		<div class="searchCon">
+			<p>
+				<el-input style="width:100%;"  placeholder="请输入内容" v-model="input23">
+					<i slot="prefix" class="el-input__icon el-icon-search"></i>
+				</el-input>
+				<el-button class="seraBtn3" type="primary">搜索</el-button>
+				<el-button type="primary" class="allCustomer active" plain>全部客户</el-button>
+				<el-button type="primary" class="myCustomer" plain>我的客户</el-button>
+			</p>
+			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
+		</div>
+		<div class="tablbWrap">
+			<el-table :data="tableData5" size="mini"  style="width: 100%;border-top:1px solid #ebeef5;">
+				<el-table-column class="temp" type="expand">
+					<template   slot-scope="props">
+						<table class="tableCon">
+							<tr>
+								<td rowspan='3'>43452346437</td>
+								<td>合计</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>252</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+							<tr>
+								<td>长协</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>252</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+							<tr>
+								<td>月竟</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>436</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+							<tr>
+								<td rowspan='3'>43452346437</td>
+								<td>合计</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>252</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+							<tr>
+								<td>长协</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>252</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+							<tr>
+								<td>月竟</td>
+								<td>2</td>
+								<td>3</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>2346</td>
+								<td>2345</td>
+								<td>436</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>25</td>
+								<td>12</td>
+								<td>154</td>
+							</tr>
+						</table>
+
+					</template>
+				</el-table-column>
+				<el-table-column label="客户名称" sortable prop="id">
+				</el-table-column>
+				<el-table-column v-for="item in labelData" v-modal="item"  width="60" label='item' prop="shopId">
+				</el-table-column>
+				<el-table-column label="匹配电厂" prop="desc">
+				</el-table-column>
+				<el-table-column label="合计" prop="shopId">
+				</el-table-column>
+			</el-table>
+		</div>
+		<div class="panginatoinPage">
+			<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :background='true' :current-page="currentPage4" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
+			</el-pagination>
+		</div>
 	</div>
 </template>
 
 <script>
 	import "../../assets/css/com.css"
-	import headerLong from "../common/headerLong.vue";
-	 var items = [
-        { id: 1, sn: 'SN20152306', name: '林州市电力炭素有限公司', category: '工程电力', address: '林州市电厂路西段',level:'一级',month:'一月' },
-        { id: 2, sn: 'SN20152305', name: '林州市鸿兴精密制造有限公司', category: '工程电力', address: '林州市电厂路西段',level:'一级',month:'一月' }
-    ];
-	export default{
-		data(){
+	export default {
+		data() {
 			return {
-                items: items,
-                fields: {
-                    id:{
-                        label: '选择'
-                    },
-                    sn: {
-                        label: '所属区域',
-                        sortable: true
-                    },
-                    category: {
-                        label: '客户编码'
-                    },
-                    name: {
-                        label: '客户名称'
-                    },
-                    month1: {
-                        label: '一月'
-                    },
-                    month2: {
-                        label: '二月'
-                    },
-                    month3: {
-                        label: '三月'
-                    },
-                    month4: {
-                        label: '四月'
-                    },
-                    month5: {
-                        label: '五月'
-                    },
-                    month6: {
-                        label: '六月'
-                    },
-                    month7:{
-                    	label:'七月'
-                    },
-                    month8:{
-                    	label:'八月'
-                    },
-                    month9:{
-                    	label:'九月'
-                    },
-                    month10:{
-                    	label:'十月'
-                    },
-                    month11:{
-                    	label:'十一月'
-                    },
-                    month12:{
-                    	label:'十二月'
-                    },
-                    sum:{
-                    	label:'合计',
-                    	sortable: true
-                    },
-                    change:{
-                    	label:'修改人',
-                    	sortable: true
-                    },
-                    sure:{
-                    	label:'确认人',
-                    	sortable: true
-                    },
-                    state:{
-                    	label:'状态',
-                    	sortable: true
-                    },
-                    opration:{
-                        label:'操作'
-                    }
-                    
-                },
-                filter: null,
-                currentPage: 1,
-                perPage: 15,
-                sortBy: null,
-                sortDesc: false,
-                totalRows: items.length
-            }
+				currentPage4: 4,
+				labelData: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+				tableData5: [{
+					id: '12987122',
+					name: 'gsfhdhfh',
+					category: '江浙小吃、小吃零食',
+					desc: '荷兰优质淡奶，奶香浓而不腻',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333'
+				}, {
+					id: '12987123',
+					name: '发货收到方向键',
+					category: '江浙小吃、小吃零食',
+					desc: '荷兰优质淡奶，奶香浓而不腻',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333'
+				}, {
+					id: '12987125',
+					name: '过放电是否能',
+					category: '江浙小吃、小吃零食',
+					desc: '荷兰优质淡奶，奶香浓而不腻',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333'
+				}, {
+					id: '12987126',
+					name: '好滋好味鸡蛋仔',
+					category: '江浙小吃、小吃零食',
+					desc: '荷兰优质淡奶，奶香浓而不腻',
+					address: '上海市普陀区真北路',
+					shop: '王小虎夫妻店',
+					shopId: '10333'
+				}]
+			}
 		},
-		components: {
-			headerLong,
-			
-		},
-		 methods:{
-            selected(){
-                alert();
-            },
-            onFiltered (filteredItems) {
-                // Trigger pagination to update the number of buttons/pages due to filtering
-                this.totalRows = filteredItems.length
-                this.currentPage = 1
-            }
-        }
-		
+		methods: {
+			handleSizeChange(val) {
+				console.log('每页 ${val} 条');
+			},
+			handleCurrentChange(val) {
+				console.log('当前页: ${val}');
+			},
+			formatter(row, column) {
+				return row.address;
+			}
+		}
 	}
 </script>
 
 <style scoped="scoped">
-	.contentCon{
-		padding-bottom:20px;
+	/*@import url("../../assets/css/com.css")*/
+	
+	.contentCon {
+		margin: 10px;
+		background: #fff;
+		height: 98%;
+		border: .5px solid #e9eaec;
+		padding-bottom: 100px;
+		overflow-y: scroll;
+		position: relative;
 	}
-	.tableCon{
-		font-size:10px;
+	
+	.contentCon:hover {
+		box-shadow: 0px 0px 5px 1px #ccc;
+	}
+	
+	.searchCon {
+		padding: 12px;
+	}
+	
+	.searchCon p {
+		display: inline-block;
+		width: 30%;
+		height: 38px;
+		position: relative;
+	}
+	
+	.searchCon span {
+		float: right;
+		height: 40px;
+		line-height: 40px;
+	}
+	
+	.el-icon {
+		color: #2d8cf0;
+		font-size: 20px;
+		font-weight: 900;
+		padding: 5px;
+		background: #eaf6fe;
+		border-radius: 5px;
+	}
+	
+	.el-icon-refresh {
+		margin-right: 10px;
+	}
+	
+	.seraBtn3 {
+		position: absolute;
+		right: 0px;
+		height: 40px;
+		top: 0px;
+		border-radius: 0px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+	
+	.allCustomer {
+		position: absolute;
+		right: -100px;
+		height: 40px;
+		top: 0px;
+		border-radius: 0px;
+	}
+	
+	.active {
+		color: #fff;
+		background-color: #409EFF;
+		border-color: #409EFF;
+	}
+	
+	.myCustomer {
+		position: absolute;
+		right: -198px;
+		height: 40px;
+		top: 0px;
+		border-radius: 0px;
+	}
+	
+	.el-icon-search {
+		color: #495060;
+		font-weight: 900;
+	}
+	
+	.tablbWrap {
+		margin: 10px 0px 20px;
+		height: 80%;
+	}
+	
+	.el-table thead {
+		border-top: 1px solid #e9eaec
+	}
+	
+	.el-table td,
+	.el-table th.is-leaf {
+		border-top: 1px solid #e9eaec
+	}
+	
+	.tableTop {
+		padding-left: 0px;
+		border-top: 1px solid #e9eaec
+	}
+	
+	.tableTop .hover_row {
+		background: #ebf7ff
+	}
+	
+	.el-table td,
+	.el-table th {
+		/*padding-top: 0px !important;
+		padding-bottom: 0px !important;
+		padding-left: 12px !important;*/
+	}
+	
+	.panginatoinPage {
+		width: 100%;
+		position: absolute;
+		bottom: 10px;
+		margin: 10px auto;
+		text-align: center;
+	}
+	
+	.demo-table-expand {
+		font-size: 0;
+	}
+	
+	.demo-table-expand label {
+		width: 90px;
+		color: #99a9bf;
+	}
+	
+	.demo-table-expand .el-form-item {
+		margin-right: 0;
+		margin-bottom: 0;
+		width: 50%;
+	}
+	
+	.tableCon {
+		width: 100%;
+		padding: 0px;
+		margin:-20px -50px;
+		
+	}
+	.tableCon  td{
+		line-height:20px;
+		padding:6px 10px;
+		width:100px;
+	}
+	
+	.el-table__expanded-cell{
+		padding: 0;
+	}
+	.temp{
+		padding:0px;
 	}
 </style>

@@ -2,7 +2,7 @@
 	<div class="hbox">
 		<div class="col left">
 			<div class="header">
-				数据监控
+				设备概况
 			</div>
 			<div class="wrapper">
 				<b-nav pills vertical>

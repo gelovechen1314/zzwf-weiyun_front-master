@@ -139,12 +139,12 @@
 								<el-form-item label="分成比例" prop="name">
 									<el-col :span="11">
 										<el-form-item label="乙方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 									<el-col :span="11">
 										<el-form-item label="甲方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 								</el-form-item>
@@ -176,12 +176,12 @@
 								<el-form-item label="分成比例" prop="name">
 									<el-col :span="11">
 										<el-form-item label="乙方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 									<el-col :span="11">
 										<el-form-item label="甲方" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
+											<el-input v-model="ruleForm.name"></el-input>
 										</el-form-item>
 									</el-col>
 								</el-form-item>
@@ -195,13 +195,14 @@
 						<div class="basicFormMsg">
 							<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 								<el-form-item label="合同上传" prop="name">
-											<el-input v-model="ruleForm.name" ></el-input>
-										</el-form-item>
+									<el-input v-model="ruleForm.name"></el-input>
+								</el-form-item>
 							</el-form>
 						</div>
 					</div>
 					<div class="submitBtn">
-						<el-button class="confirm" type="primary">确定</el-button><el-button @click="close2()" class="cancel" plain>取消</el-button>
+						<el-button class="confirm" type="primary">确定</el-button>
+						<el-button @click="close2()" class="cancel" plain>取消</el-button>
 					</div>
 				</div>
 			</div>
@@ -216,6 +217,7 @@
 	export default {
 		data() {
 			return {
+				input23: '',
 				value6: [],
 				ruleForm: {
 					name: '',
@@ -346,6 +348,9 @@
 					this.$refs.multipleTable.clearSelection();
 				}
 			},
+			filterTag(value, row) {
+				return row.tag === value;
+			},
 			handleSelectionChange(val) {
 				this.multipleSelection = val;
 			}
@@ -389,11 +394,13 @@
 		height: 38px;
 		position: relative;
 	}
-	.searchCon p .input{
-		width:100%;
-		left:0px;
-		top:0px;
+	
+	.searchCon p .input {
+		width: 100%;
+		left: 0px;
+		top: 0px;
 	}
+	
 	.searchCon span {
 		float: right;
 	}
@@ -416,7 +423,7 @@
 		right: 0px;
 		height: 40px;
 		top: 0px;
-		background:#409eff;
+		background: #409eff;
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
@@ -530,7 +537,7 @@
 		background: #fff;
 		position: absolute;
 		top: 100px;
-		height:85%;
+		height: 85%;
 		overflow-y: scroll;
 		border-radius: 5px;
 		padding-bottom: 20px;
@@ -580,18 +587,20 @@
 		padding-left: 82px;
 		width: 54%;
 	}
-	.submitBtn{
-		width:100%;
-		padding-top:15px;
-		border-top:1px solid #e9eaec;
-		
+	
+	.submitBtn {
+		width: 100%;
+		padding-top: 15px;
+		border-top: 1px solid #e9eaec;
 	}
-	.cancel{
-		float:right;
-		margin-right:10px;
+	
+	.cancel {
+		float: right;
+		margin-right: 10px;
 	}
-	.confirm{
-		float:right;
-		margin-right:20px;
+	
+	.confirm {
+		float: right;
+		margin-right: 20px;
 	}
 </style>

@@ -65,10 +65,10 @@
 						<el-button style="display:inline-block;" @click="open4(scope.$index,true)" type="text" size="small">
 							备注
 						</el-button>
-						<!--<router-link style="color:#409EFF;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">修改</router-link>
+						<router-link style="color:#409EFF;cursor:pointer;text-decoration: none;" to="/customer/modifyconsumerinfo">修改</router-link>
 						<el-button style="display:inline-block;" @click="open2()" type="text" size="small">
 							删除
-						</el-button>-->
+						</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -97,11 +97,24 @@
 				</div>
 				<div class="beiZmsg" id="beiZmsg">
 					<div id="wrap">
-						<div id="content"></div>
+						<div class="contentWrap">
+							<p><span></span><i>2018-06</i><b></b></p>
+							<ul class="lists">
+								<li>
+									<div class="indexNum">
+										<strong>1</strong><h6>大众联合</h6><strong>2018-06-07 9:46:12</strong>
+									</div>
+									<div class="conTxt">
+										考虑到是个娘炮；是了；热过荆门市天萝卜们耐热lot说的；氯化钠门关上了口很牛逼；劳动时间；人
+									</div>
+								</li>
+								
+							</ul>
+						</div>
 					</div>
 					<div class="con"><span>添加备注：</span><textarea id="text"></textarea><button class="btnSave">保存</button></div>
 					<div class="btmBtn">
-						<button class="cancelBtn"> 取消</button><button @click="submitCon" id="sureBtn" class="sureBtn">确定</button>
+						<button class="cancelBtn" @click="close1()">取消</button><button @click="submitCon" id="sureBtn" class="sureBtn">确定</button>
 					</div>
 				</div>
 			</div>
@@ -225,6 +238,7 @@
 	export default {
 		data() {
 			return {
+				listsArr:[],
 				options1: [{
 					value: '选项1',
 					label: '黄金糕'
@@ -345,33 +359,21 @@
 		},
 		methods: {
 			submitCon(){
-				var oBox = $("#beiZmsg");
-				var oWrap = $("#wrap");
-				var oDl = $("#content");
-				var oContent = $("#content");
 				var txt = $("#text").val();
-					console.log($("#text").val())
-					var oDl = document.createElement("dl");
-					var od = document.createElement("dd");
-					var txt1 = document.createTextNode(txt);
-					var oT = document.createElement("dt");
-					var img = "<img src='img/pic-5.jpg'>";
-					oT.innerHTML = img;
-					od.appendChild(txt1);
-					oDl.appendChild(od);
-					oDl.appendChild(oT);
-					$("#content").append(oDl);
+				if(txt==""){
+					this.flag = false;
+					return this.flag;
+				}
+				else{
+					var oDate=new Date();
+				}
+				
+					
 					$("#text").value="";
 					var scrollTop = oContent.offsetHeight - oWrap.offsetHeight;
 					oWrap.scrollTop = scrollTop;
 			},
 			creatDiv() {
-				
-				 $("#sureBtn").click(function(){
-				 	alert('111')
-				 	
-				 })
-				
 			},
 			handleItemChange(val) {
 				console.log('active item:', val);
@@ -438,7 +440,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.contentCon {
 		margin: 10px;
 		background: #fff;
@@ -628,7 +630,7 @@
 	}
 	
 	.txtCon {
-		padding: 20px 32px;
+		padding: 10px 32px;
 	}
 	
 	.txtCon h6 {
@@ -639,7 +641,7 @@
 	}
 	
 	.beiZmsg {
-		padding: 10px 0px;
+		/*padding: 10px 0px;*/
 	}
 	
 	#wrap {
@@ -713,6 +715,81 @@
 		color: #fff;
 		border-radius: 5px;
 	}
+	.contentWrap{
+		padding:0px 5px;
+		
+	}
+	.contentWrap p{
+		width:100%;
+		line-height:20px;
+		height:20px;
+		
+	}
+	.contentWrap p span{
+		display: inline-block;
+		width:3%;
+		height:10px;
+		border-bottom:1px solid #ddd;
+		float:left;
+		
+	}
+	.contentWrap p b{
+		display:inline-block;
+		width:88%;
+		float:right;
+		height:10px;
+		border-bottom:1px solid #ddd;
+	}
+	.contentWrap p i{
+		width:8%;
+		text-align: center;
+		font-style:normal;
+		font-size:12px;
+		display: inline-block;
+		float:left;
+	}
+	.lists{
+		padding:0px 25px;
+	}
+	.lists li{
+		width:100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		zoom:1;
+		padding:0px 0px 10px;
+	}
+	.lists li:after{
+		content: "";
+		height: 0;
+		line-height: 0;
+		display: block;
+		visibility: hidden;
+		clear: both
+	}
+	.lists li .indexNum{
+		float:left;
+		margin-right: 10px;
+		width:35%;
+		
+	}
+	.lists li .indexNum strong{
+		display: inline-block;
+		font-weight: normal;
+		font-size:12px;
+		margin-right:10px;
+	}
+	.lists li .indexNum h6{
+		display: inline-block;
+		font-size:12px;
+		margin-right:10px;
+	}
+	.lists li .conTxt{
+		/*width:68%;*/
+		float:right;
+		font-size:12px;
+	}
+	
 	/*修改合同弹窗*/
 	
 	.editContractCon {

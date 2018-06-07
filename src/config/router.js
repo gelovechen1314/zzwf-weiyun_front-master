@@ -7,6 +7,7 @@ const Dashboard  = r => require.ensure([], () => r(require('../components/Dashbo
 const Login  = r => require.ensure([], () => r(require('../components/Login.vue')), 'login')
 const Trade  = r => require.ensure([], () => r(require('../components/trade/Trade.vue')), 'trade')
 const Contract  = r => require.ensure([], () => r(require('../components/contract/Contract.vue')), 'contract')
+const Longassociationcontract  = r => require.ensure([], () => r(require('../components/contract/Longassociationcontract.vue')), 'contract')
 const Monitor  = r => require.ensure([], () => r(require('../components/monitor/Monitor.vue')), 'monitor')
 const Customer  = r => require.ensure([], () => r(require('../components/customer/Customer.vue')), 'customer')
 const Customermanagement  = r => require.ensure([], () => r(require('../components/customer/Customermanagement.vue')), 'customer')
@@ -97,11 +98,30 @@ const routes = [
                 children:[
                  	{
                         path: '/',
-                        component: r => require.ensure([], () => r(require('../components/contract/Index.vue')), 'contract')
+                        component: r => require.ensure([], () => r(require('../components/contract/Contractelectricity.vue')), 'contract')
                     },
                     {
                         path: '/contract/contractelectricity',
                         component: r => require.ensure([], () => r(require('../components/contract/Contractelectricity.vue')), 'contract')
+                    },
+                    {
+                        path: '/contract/longassociationcontract',
+                        component:Longassociationcontract,
+	                        children:[
+		                         {
+		                        path: '/contract/longassociationcontract/',
+		                        component: r => require.ensure([], () => r(require('../components/contract/Longassociationstatistics.vue')), 'contract')
+		                   	 	},
+		                   	 	{
+		                        path: '/contract/longassociationcontract/longassociatcontractchild',
+		                        component: r => require.ensure([], () => r(require('../components/contract/Longassociatcontractchild.vue')), 'contract')
+		                    	},
+	                        ]
+                       
+                    },
+                    {
+                        path: '/contract/longassociationcontract',
+                        component: r => require.ensure([], () => r(require('../components/contract/Longassociationcontract.vue')), 'contract')
                     },
                    
                 ]
@@ -137,6 +157,10 @@ const routes = [
                         component: r => require.ensure([], () => r(require('../components/customer/Create.vue')), 'customer')
                     },
                     {
+                        path: '/customer/customercrm',
+                        component: r => require.ensure([], () => r(require('../components/customer/Customercrm.vue')), 'customer')
+                    },
+                    {
                         path: '/customer/customerinformation',
                         component: r => require.ensure([], () => r(require('../components/customer/Customerinformation.vue')), 'customer')
                     },
@@ -162,7 +186,7 @@ const routes = [
                     },
                     {
                         path: '/customer/supplier',
-                        component: r => require.ensure([], () => r(require('../components/customer/Supplier.vue')), 'customer')
+                        component: r => require.ensure([], () => r(require('../components/customer/Index.vue')), 'customer')
                     },
                      {
                         path: '/customer/modifyconsumerinfo',

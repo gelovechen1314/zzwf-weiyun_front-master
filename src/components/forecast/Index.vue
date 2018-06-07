@@ -319,6 +319,7 @@
 		display: inline-block;
 		padding: 0px 20px;
 		line-height: 58px;
+		width:160px;
 		border-bottom: 2px solid #0099ff;
 	}
 	
