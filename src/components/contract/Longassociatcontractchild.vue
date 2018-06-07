@@ -52,7 +52,9 @@
 						</el-table-column>
 					</el-table>
 				</table>
-				
+
+				<el-pagination style="float:right;" @size-change="handleSizeChange" @current-change="handleCurrentChange" :background='true' :current-page="currentPage" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
+				</el-pagination>
 			</div>
 		</div>
 	</div>
@@ -62,6 +64,7 @@
 	export default {
 		data() {
 			return {
+				currentPage: 1,
 				tableData: [{
 					date: '2016-05-02',
 					name: '王小虎',
@@ -91,6 +94,12 @@
 			deleteRow(index, rows) {
 				rows.splice(index, 1);
 			},
+			handleSizeChange(val) {
+				console.log('每页 ${val} 条');
+			},
+			handleCurrentChange(val) {
+				console.log('当前页: ${val}');
+			},
 			tableRowClassName({
 				row,
 				rowIndex
@@ -110,10 +119,13 @@
 	.longAssoCon {
 		margin: 20px;
 		background: #fff;
+		
 	}
 	
 	.mainCon {
 		padding: 20px 10px;
+		height:85%;
+		background: #fff;
 	}
 	
 	.btn {
@@ -125,7 +137,7 @@
 	
 	.tableCon {
 		width: 100%;
-		padding-top: 20px;
+		padding: 20px 0px;
 	}
 	
 	.table thead tr {
