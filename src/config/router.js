@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from '../store/store'
-import * as types from '../store/types'
+import * as types from '../store/types' //Dataacquisition
 const Home = r => require.ensure([], () => r(require('../components/Home.vue')), 'home')
 const Setup = r => require.ensure([], () => r(require('../components/setup/Setup.vue')), 'setup')
 const Dashboard = r => require.ensure([], () => r(require('../components/Dashboard.vue')), 'dashboard')
@@ -17,6 +17,8 @@ const Equipment = r => require.ensure([], () => r(require('../components/equipme
 const Accountnumber = r => require.ensure([], () => r(require('../components/accountnumber/Accountnumber.vue')), 'accountnumber')
 const Presscenter = r => require.ensure([], () => r(require('../components/setup/Presscenter.vue')), 'setup')
 const Metering = r => require.ensure([], () => r(require('../components/metering/Metering.vue')), 'metering')
+const Dataacquisition = r => require.ensure([], () => r(require('../components/metering/Dataacquisition.vue')), 'metering')
+const Electricalmonitoring = r => require.ensure([], () => r(require('../components/metering/Electricalmonitoring.vue')), 'metering')
 
 Vue.use(VueRouter)
 
@@ -261,9 +263,7 @@ const routes = [{
 					{
 						path: '/setup/presscenter',
 						component: Presscenter,
-
-						children: [
-							{
+						children: [{
 								path: '/setup/presscenter/',
 								component: r => require.ensure([], () => r(require('../components/setup/Policiesandregulations.vue')), 'setup')
 							},
@@ -271,7 +271,6 @@ const routes = [{
 								path: '/setup/presscenter/websitebulletin',
 								component: r => require.ensure([], () => r(require('../components/setup/Websitebulletin.vue')), 'setup')
 							},
-
 
 						]
 					},
@@ -291,13 +290,41 @@ const routes = [{
 					},
 					{
 						path: '/metering/dataacquisition',
-						component: r => require.ensure([], () => r(require('../components/metering/Dataacquisition.vue')), 'metering')
+						component: Dataacquisition,
+						children: [{
+								path: '/metering/dataacquisition/',
+								component: r => require.ensure([], () => r(require('../components/metering/hourlyload.vue')), 'setup')
+							},
+							{
+								path: '/metering/dataacquisition/Fifteenminuteload',
+								component: r => require.ensure([], () => r(require('../components/metering/Fifteenminuteload.vue')), 'setup')
+							},
+
+						]
+					},
+					{
+						path: '/metering/electricalmonitoring',
+						component: Electricalmonitoring,
+						children: [{
+								path: '/metering/electricalmonitoring/',
+								component: r => require.ensure([], () => r(require('../components/metering/Monthlyelectricity.vue')), 'setup')
+							},
+							{
+								path: '/metering/electricalmonitoring/dailyelectricity',
+								component: r => require.ensure([], () => r(require('../components/metering/Dailyelectricity.vue')), 'setup')
+							},
+							{
+								path: '/metering/electricalmonitoring/hoursofelectricity',
+								component: r => require.ensure([], () => r(require('../components/metering/Hoursofelectricity.vue')), 'setup')
+							},
+
+						]
 					},
 					{
 						path: '/metering/electricalmonitoring',
 						component: r => require.ensure([], () => r(require('../components/metering/Electricalmonitoring.vue')), 'metering')
 					},
-					
+
 				]
 			},
 		]
