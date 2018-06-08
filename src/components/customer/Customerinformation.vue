@@ -15,13 +15,13 @@
 				<el-input class="input" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
-				<el-button class="seraBtn" plain type="primary">搜索</el-button>
+				<el-button class="seraBtn5" plain type="primary">搜索</el-button>
 				<el-cascader class="selecArea" separator="" :options="options2" @active-item-change="handleItemChange" :props="props"></el-cascader>
 			</p>
 			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
 		</div>
 		<div class="tableWrap">
-			<el-table size="mini" class="tableTop" ref="multipleTable" :data="tableData3" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+			<el-table size="mini" class="tableTop"   ref="multipleTable" :data="tableData3" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
 				<el-table-column type="selection" width="55">
 				</el-table-column>
 				<el-table-column prop="data" label="查看" width="30">
@@ -30,7 +30,7 @@
 						<img v-if="!show" src="../../assets/images/ic_pdf2.jpg" />
 					</template>
 				</el-table-column>
-				<el-table-column prop="name" label="合同编号" width="90">
+				<el-table-column prop="name" label="客户名称" sortable width="90">
 				</el-table-column>
 				<el-table-column prop="address" label="企业名称" width="120" show-overflow-tooltip>
 				</el-table-column>
@@ -507,7 +507,7 @@
 		border-bottom-left-radius: 5px;
 	}
 	
-	.seraBtn {
+	.seraBtn5 {
 		position: absolute;
 		background: none;
 		right: -110px;

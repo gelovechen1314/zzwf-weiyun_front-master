@@ -4,7 +4,7 @@
 			<span>客户CRM</span>
 			<p><em class="iconfont">&#xe778;</em>首页：<b>客户></b><b>客户总览</b></p>
 		</div>
-		<div class="panel" style="background:#fff;">
+		<div class="panel" style="background:#fff;height:100%;overflow: auto;">
 			<div class="panel-header">
 				<div class="row">
 					<div class="md" style="width:100%;margin-bottom:10px;">
@@ -50,9 +50,8 @@
 				<el-pagination style="float:right;margin-bottom:20px;font-size:12px;color:#666;" @size-change="handleSizeChange" @current-change="handleCurrentChange" :background='true' :current-page="currentPage" :page-sizes="[100, 200, 300, 400]" :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="totalRows">
 				</el-pagination>
 			</div>
-		</div>
-		<!-----------添加------------>
-		<div class="addCallParnter" v-if="showAddMsg">
+			<!-----------添加------------>
+		<div class="addCallParnter"  v-if="showAddMsg">
 			<div class="warningMsg">
 				<p>添加联系人：客户公司也有几个联系人，可以添加</p>
 				<p>修改：修改客户信息，下次预约时间等</p>
@@ -107,6 +106,8 @@
 				</el-form>
 			</div>
 		</div>
+		</div>
+		
 	</div>
 </template>
 <script>

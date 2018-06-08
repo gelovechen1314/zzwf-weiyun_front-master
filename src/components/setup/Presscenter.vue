@@ -1,16 +1,16 @@
 <template>
-	<div>
+	<div class='wrap'>
 		<div class="header titleHea">
-			<span>长协合同</span>
-			<p><a href="/"><em class="iconfont">&#xe778;</em>首页：</a><b>客户></b><b>客户总览</b></p>
+			<span>新闻中心</span>
+			<p><a href="/"><em class="iconfont">&#xe778;</em>首页：</a><b>设置></b><b>新闻中心</b></p>
 		</div>
-		<div class="wrapper-md wrapperBox">
+		<div class="wrapper-md wrapperBox" >
 			<div class="mainCon">
 				<div class="navLists">
-					<b-button class="btnA" to="/contract/longassociationcontract/">长协统计</b-button>
-					<b-button class="btnA" to="/contract/longassociationcontract/longassociatcontractchild">长协合同</b-button>
+					<b-button class="btnA" to="/setup/presscenter/">政策法规</b-button>
+					<b-button class="btnA" to="/setup/presscenter/websitebulletin">新闻公告</b-button>
 				</div>
-				 <div class="con">
+				 <div class="con" >
 				 	<router-view></router-view>
 				 </div>
 			</div>
@@ -47,6 +47,10 @@
 </script>
 
 <style scoped="scoped">
+	.wrap{
+		width:100%;
+		height:100%;
+	}
 	.titleHea {
 		padding: 0px;
 		height: 58px;
@@ -89,10 +93,12 @@
 	
 	.wrapperBox{
 		padding:10px 0 0 24px;
-		background:#edf1f2;
+		background:#fff;
+		height:98%;
+		overflow: auto;
 	}
 	.mainCon{
-		/*background:#fff;*/
+		height:100%;
 	}
 	.navLists{
 		width:100%;
@@ -118,7 +124,7 @@
 		line-height:42px;
 		padding:0px;
 		color:#000;
-		background:#edf1f2;
+		background:#fff;
 		float:left;
 		font-size:18px;
 		text-align: center;
@@ -135,23 +141,20 @@
 			color:#fff;
 			background:#0099ff;
 		}
-	/*.navLists .btnA a:active
+	.navLists .btnA a:active
 		{
 			color:#fff;
 			background:#0099ff;
-		}*/
+		}
 	.navLists .active
 		{
 			color:#fff;
 			background:#0099ff;
 		}
-	.navLists .btnA a:visited{
-		color:#000;
-		background:#edf1f2;
-	}
 	.con{
 		width:100%;
 		height:100%;
-		background:#edf1f2;
+		background:#fff;
+		
 	}
 </style>

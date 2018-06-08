@@ -1,6 +1,6 @@
 <template>
 	<div>
-		系统设置
+		数据采集
 	</div>
 </template>
 

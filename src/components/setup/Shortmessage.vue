@@ -1,6 +1,6 @@
 <template>
 	<div>
-		系统设置
+		短消息
 	</div>
 </template>
 

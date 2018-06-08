@@ -8,6 +8,8 @@
 			<b-nav pills vertical>
 			    <b-nav-item to="/forecast/annualelectricityforecast">年度电量预测</b-nav-item>
 			    <b-nav-item to="/forecast/monthlyelectricityforecast">月度电量预测</b-nav-item>
+			     <b-nav-item to="/forecast/userdeclaration">用户申报</b-nav-item>
+			    <b-nav-item to="/forecast/electricitybillmanagement">电费单管理</b-nav-item>
 			</b-nav>
 			</div>
 		</div>

@@ -5,29 +5,26 @@
 		</div>
 		<div class="searchCon">
 			<p>
-				<el-input style="width:100%;"  placeholder="请输入内容" v-model="input23">
+				<el-input style="width:100%;" placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
 				<el-button class="seraBtn3" type="primary">搜索</el-button>
 				<el-button type="primary" class="allCustomer active" plain>全部客户</el-button>
 				<el-button type="primary" class="myCustomer" plain>我的客户</el-button>
 			</p>
-			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
+			<div class='div'><button class="recordBtn">调配记录</button><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></div>
 		</div>
 		<div class="tablbWrap">
-			<el-table :data="tableData5" size="mini"  style="width: 100%;border-top:1px solid #ebeef5;">
+			<el-table :data="tableData5" size="mini" style="width: 100%;border-top:1px solid #ebeef5;">
 				<el-table-column class="temp" type="expand">
-					<template   slot-scope="props">
+					<template slot-scope="props">
 						<table class="tableCon">
 							<tr>
-								<td rowspan='3'>43452346437</td>
-								<td>合计</td>
-								<td>2</td>
-								<td>3</td>
+								<td>43452346437</td>
+								<td>43t564</td>
 								<td>4</td>
 								<td>45243</td>
 								<td>2346</td>
-								<td>2345</td>
 								<td>252</td>
 								<td>25</td>
 								<td>25</td>
@@ -36,104 +33,86 @@
 								<td>25</td>
 								<td>12</td>
 								<td>154</td>
+								<td>25</td>
+								<td><span>修改</span><span>确认</span></td>
 							</tr>
-							<tr>
-								<td>长协</td>
-								<td>2</td>
-								<td>3</td>
+						<tr>
+								<td>43452346437</td>
+								<td>43t564</td>
 								<td>4</td>
 								<td>45243</td>
 								<td>2346</td>
-								<td>2345</td>
+								<td>23446</td>
+								<td>23446</td>
+								<td>25</td>
+								<td>23446</td>
+								<td>23446</td>
+								<td>23446</td>
+								<td>12</td>
+								<td>154</td>
+								<td>25</td>
+								<td><span>修改</span><span>确认</span></td>
+							</tr>
+							<tr>
+								<td>43452346437</td>
+								<td>43t564</td>
+								<td>4</td>
+								<td>45243</td>
+								<td>23446</td>
 								<td>252</td>
+								<td>25fdh</td>
+								<td>23446</td>
 								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>12</td>
+								<td>23446</td>
+								<td>23446</td>
+								<td>23446</td>
 								<td>154</td>
+								<td>25</td>
+								<td><span>修改</span><span>确认</span></td>
 							</tr>
-							<tr>
-								<td>月竟</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>45243</td>
-								<td>2346</td>
-								<td>2345</td>
-								<td>436</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>12</td>
-								<td>154</td>
-							</tr>
-							<tr>
-								<td rowspan='3'>43452346437</td>
-								<td>合计</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>45243</td>
-								<td>2346</td>
-								<td>2345</td>
-								<td>252</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>12</td>
-								<td>154</td>
-							</tr>
-							<tr>
-								<td>长协</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>45243</td>
-								<td>2346</td>
-								<td>2345</td>
-								<td>252</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>12</td>
-								<td>154</td>
-							</tr>
-							<tr>
-								<td>月竟</td>
-								<td>2</td>
-								<td>3</td>
-								<td>4</td>
-								<td>45243</td>
-								<td>2346</td>
-								<td>2345</td>
-								<td>436</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>25</td>
-								<td>12</td>
-								<td>154</td>
-							</tr>
+
 						</table>
 
 					</template>
 				</el-table-column>
-				<el-table-column label="客户名称" sortable prop="id">
+				<el-table-column label="客户名称" width="120" prop="id">
+					<template scope="scope">
+						<div style="color:#4fa8f9;text-decoration:none;cursor:pointer;" @click="getMore(scope.row)">{{ scope.row.name }}</div>
+					</template>
 				</el-table-column>
-				<el-table-column v-for="item in labelData" v-modal="item"  width="60" label='item' prop="shopId">
+				<el-table-column width="70" label='一月' prop="shopId">
 				</el-table-column>
-				<el-table-column label="匹配电厂" prop="desc">
+				<el-table-column width="70" label='二月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='三月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='四月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='五月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='六月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='七月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='八月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='九月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='十月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='十一月' prop="shopId">
+				</el-table-column>
+				<el-table-column width="70" label='十二月' prop="shopId">
 				</el-table-column>
 				<el-table-column label="合计" prop="shopId">
+				</el-table-column>
+				<el-table-column label="更多" width="120px">
+					
+						<template slot-scope="scope">
+							<el-button @click="handleClick(scope.row)" type="text" size="small">记录</el-button>
+							<el-button type="text" style="color:#999;" size="small">预测中</el-button>
+						</template>
+					
 				</el-table-column>
 			</el-table>
 		</div>
@@ -195,7 +174,10 @@
 			},
 			formatter(row, column) {
 				return row.address;
-			}
+			},
+			 handleClick(row) {
+        console.log(row);
+      }
 		}
 	}
 </script>
@@ -228,7 +210,8 @@
 		position: relative;
 	}
 	
-	.searchCon span {
+	.searchCon .div {
+		display: inline-block;
 		float: right;
 		height: 40px;
 		line-height: 40px;
@@ -255,6 +238,20 @@
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
+	}
+	
+	.recordBtn {
+		border: none;
+		background: #eaf6fe;
+		font-size: 14px;
+		padding: 0px 10px;
+		color: #2d8cf0;
+		outline: none;
+	}
+	
+	.recordBtn:hover,
+	.recordBtn:active {
+		background: #c5e5fb;
 	}
 	
 	.allCustomer {
@@ -338,21 +335,33 @@
 	}
 	
 	.tableCon {
-		width: 100%;
+		width: 110%;
 		padding: 0px;
-		margin:-20px -50px;
-		
-	}
-	.tableCon  td{
-		line-height:20px;
-		padding:6px 10px;
-		width:100px;
+		margin: -20px -50px;
 	}
 	
-	.el-table__expanded-cell{
+	.tableCon td {
+		line-height: 20px;
+		padding: 6px 0px;
+		width: 70px;
+		text-align: center;
+	}
+	.tableCon td:nth-of-type(1){
+		width:180px;
+		text-align: center;
+	}
+	.tableCon td:nth-of-type(15){
+		width:150px;
+		
+	}
+	.tableCon td:nth-of-type(15) span{
+		margin-right:10px;
+	}
+	.el-table__expanded-cell {
 		padding: 0;
 	}
-	.temp{
-		padding:0px;
+	
+	.temp {
+		padding: 0px;
 	}
 </style>

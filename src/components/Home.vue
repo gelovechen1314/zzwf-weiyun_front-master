@@ -35,9 +35,9 @@
                     <!--<b-nav-item to="/monitor"><i class="iconfont icon-monitor"></i>监控</b-nav-item>-->
                     <b-nav-item to="/forecast"><i class="iconfont icon-divine"></i>预测</b-nav-item>
                    <!--	<b-nav-item><i class="iconfont icon-buy"></i>购电</b-nav-item>-->
-                    <b-nav-item to="/accountnumber"><i class="iconfont icon-users"></i>计量</b-nav-item>
+                    <b-nav-item to="/metering"><i class="iconfont icon-users"></i>计量</b-nav-item>
                     <b-nav-item to="/equipment"><i class="iconfont icon-device"></i>设备</b-nav-item>
-                    <b-nav-item><i class="iconfont icon-setting"></i>设置</b-nav-item>
+                    <b-nav-item to="/setup"><i class="iconfont icon-setting"></i>设置</b-nav-item>
                     <!--<b-nav-item to="/accountnumber"><i class="iconfont icon-users"></i>账号</b-nav-item>
                     <b-nav-item><i class="iconfont icon-service"></i>客服</b-nav-item>-->
                     

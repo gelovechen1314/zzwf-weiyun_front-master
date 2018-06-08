@@ -2,13 +2,12 @@
 	<div class="hbox">
 		<div class="col left">
 			<div class="header">
-				设备概况
+				用电监测
 			</div>
 			<div class="wrapper">
 				<b-nav pills vertical>
-					<b-nav-item to="/setup/electricmonitor">用户管理</b-nav-item>
-					<b-nav-item to="/setup/presscenter">新闻中心</b-nav-item>
-					<b-nav-item to="/setup/shortmessage">短消息</b-nav-item>
+					<b-nav-item to="/metering/dataacquisition">数据采集</b-nav-item>
+					<b-nav-item to="/metering/electricalmonitoring">用电监测</b-nav-item>
 				</b-nav>
 			</div>
 		</div>

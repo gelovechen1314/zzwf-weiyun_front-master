@@ -1,6 +1,7 @@
 <template>
 	<div>
-		系统设置
+		
+		用户申报
 	</div>
 </template>
 

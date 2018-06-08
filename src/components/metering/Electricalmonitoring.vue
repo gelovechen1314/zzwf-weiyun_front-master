@@ -1,6 +1,6 @@
 <template>
 	<div>
-		系统设置
+		用电监测
 	</div>
 </template>
 

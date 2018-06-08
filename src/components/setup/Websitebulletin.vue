@@ -1,6 +1,6 @@
 <template>
 	<div>
-		系统设置
+		网站公告
 	</div>
 </template>
 
