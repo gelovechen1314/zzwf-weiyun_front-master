@@ -82,15 +82,15 @@
 						<span style="width:68%;">月度竞价历史数据</span>
 						<p class="tabP">gsdfg</p>
 					</div>
-					<div class="historyDataLine" id="historyDataLine">
-						
+					<div class="historyDataLine" id="historyDataLine" style="height:280px;width:100%;">
+
 					</div>
 
 				</div>
 			</div>
 			<div class="tradeCon">
 				<div class="titleHea">
-					<span style="width:75%;">交易分布</span>
+					<span style="width:75%;">月度竞价讨论</span>
 				</div>
 				<div class="circleChartCon" id="circleChartCon" style="height:160px;"></div>
 			</div>
@@ -161,7 +161,7 @@
 		mounted() {
 			this.biddingChart();
 			this.requireElecLine();
-			this.MonBar();
+			this.historyDataLine();
 			this.dayBar()
 			var sW = this.$refs.sumW.height;
 			this.$refs.proW.height = sW * (parseInt(this.data1.num) / 100)
@@ -291,18 +291,18 @@
 				});
 
 			},
-			MonBar() {
-				let chart = this.echarts.init(document.getElementById('MonBar'))
+			historyDataLine() {
+				let chart = this.echarts.init(document.getElementById('historyDataLine'))
 
 				let option = {
+					title: {
+						text: ''
+					},
 					tooltip: {
-						trigger: 'axis',
-						axisPointer: { // 坐标轴指示器，坐标轴触发有效
-							type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-						}
+						trigger: 'axis'
 					},
 					legend: {
-						data: ['邮件营销', '联盟广告', '视频广告', '搜索引擎', '百度', '谷歌', '必应', '其他']
+						data: ['邮件营销', '联盟广告']
 					},
 					grid: {
 						left: '3%',
@@ -310,52 +310,34 @@
 						bottom: '3%',
 						containLabel: true
 					},
-					xAxis: [{
+					toolbox: {
+						feature: {
+							saveAsImage: {}
+						}
+					},
+					xAxis: {
 						type: 'category',
+						boundaryGap: false,
 						data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-					}],
-					yAxis: [{
+					},
+					yAxis: {
 						type: 'value'
-					}],
+					},
 					series: [{
 							name: '邮件营销',
-							type: 'bar',
-							stack: '广告',
+							type: 'line',
+							stack: '总量',
+							color:'#4f8af9',
 							data: [120, 132, 101, 134, 90, 230, 210]
 						},
 						{
 							name: '联盟广告',
-							type: 'bar',
-							stack: '广告',
+							type: 'line',
+							stack: '总量',
+							color:'#f35e7a',
 							data: [220, 182, 191, 234, 290, 330, 310]
 						},
-						{
-							name: '视频广告',
-							type: 'bar',
-							stack: '广告',
-							data: [150, 232, 201, 154, 190, 330, 410]
-						},
-						{
-							name: '搜索引擎',
-							type: 'bar',
-							color: '#4fa8f9',
-							data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-							markLine: {
-								lineStyle: {
-									normal: {
-										type: 'dashed'
-									}
-								},
-								data: [
-									[{
-										type: 'min'
-									}, {
-										type: 'max'
-									}]
-								]
-							}
-						},
-
+						
 					]
 				};
 				chart.setOption(option);
@@ -464,17 +446,18 @@
 	}
 	
 	.centerLeft {
-		width:100%;
+		width: 100%;
 		border: .5px solid #e9eaec;
 		border-radius: 5px;
 		background: #fff;
-		margin-bottom:10px;
+		margin-bottom: 10px;
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
 		zoom: 1;
 	}
-	.cleftCon{
+	
+	.cleftCon {
 		margin-right: 10px;
 	}
 	
