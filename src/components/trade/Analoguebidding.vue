@@ -30,10 +30,9 @@
 						<div class="header titleHea">
 							<span>模拟竞价统计</span>
 						</div>
+						<div class="biddingChart" id="biddingChart" style="width:100%;height:180px;"></div>
 					</div>
-
 				</div>
-
 			</div>
 			<div class="tpRightCon" ref="topInfo">
 				<div class="header titleHea">
@@ -54,69 +53,39 @@
 			</div>
 		</div>
 		<div class="centerMain">
-			<div class="useElecPro">
-				<div class="header titleHea">
-					<span>用电实时进度</span>
-					<b class="txt">单位：<i>MWh</i>(每十五分钟一更新)</b>
-				</div>
-				<div class="progressCon">
-					<p><span><b></b>已购电量</span><span><b></b>已用电量</span><span><b></b>超出电量</span></p>
-					<el-progress :text-inside="true" :stroke-width="24" :percentage="70" color="#4fa8f9"></el-progress>
-					<div class="dataTxt">
-						<span>已购<strong>6.00</strong></span><span>已用<strong>6.00</strong></span><span>超出<strong>6.00</strong></span><span>剩余<strong>6.00</strong></span>
-					</div>
-				</div>
-			</div>
-			<div class="elecTime">
-				<div class="header titleHea">
-					<span style="width:75%;">用电实时段分布</span>
-					<p class="tabP"><b :class="{'active':!flag}" @click="flag = false">月</b><b @click="flag = true" :class="{'active':flag}">年</b></p>
-				</div>
-				<div class="timeIntervalCon" v-if="!flag">
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent" ref="sumW">
-							<div class="pro" ref="proW">{{data1.num}}</div>
-							<span class="proPtxt">{{data1.sum}}</span>
+			<div class="cleftCon">
+				<div class="centerLeft">
+					<div class="useElecPro">
+						<div class="header titleHea">
+							<span style="display:inline-block;width:40%;">月度竞价模拟</span>
+							<p><i class="el-icon-refresh"></i><button>+</button><button style="font-size:12px;">清空数据</button></p>
+						</div>
+						<div class="requireElecLine">
+							<p>
+								<a href="javascript:void(0):">修</a>
+								<a href="javascript:void(0):">清</a>
+							</p>
+							<div id="requireElecLine" style="height:280px;margin-top:-20px"></div>
 						</div>
 					</div>
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent">
-							<div class="pro">12%</div>
-							<span class="proPtxt">5.159MWh</span>
+					<div class="elecTime">
+						<div class="header titleHea">
+							<span style="width:75%;">月度竞价供给侧数</span>
 						</div>
-					</div>
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent">
-							<div class="pro">12%</div>
-							<span class="proPtxt">5.159MWh</span>
+						<div class="eleCon">
+							<p>供给侧名称</p>
 						</div>
 					</div>
 				</div>
-				<div class="timeIntervalCon" v-if="flag">
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent" ref="sumW">
-							<div class="pro" :style="'width:'+ ((data2.num)/100) *data2.sum +'%;'" ref="proW">{{data2.num}}%</div>
-							<span class="proPtxt">{{data2.sum}}MWh</span>
-						</div>
+				<div class="btmMain">
+					<div class="header titleHea">
+						<span style="width:68%;">月度竞价历史数据</span>
+						<p class="tabP">gsdfg</p>
 					</div>
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent">
-							<div class="pro">12%</div>
-							<span class="proPtxt">5.159MWh</span>
-						</div>
+					<div class="historyDataLine" id="historyDataLine">
+						
 					</div>
-					<div class="progressWrap">
-						<div class="tit">谷段</div>
-						<div class="proParent">
-							<div class="pro">12%</div>
-							<span class="proPtxt">5.159MWh</span>
-						</div>
-					</div>
+
 				</div>
 			</div>
 			<div class="tradeCon">
@@ -126,18 +95,7 @@
 				<div class="circleChartCon" id="circleChartCon" style="height:160px;"></div>
 			</div>
 		</div>
-		<div class="btmMain">
-			<div class="header titleHea">
-				<span style="width:68%;">用电实时段分布</span>
-				<p class="tabP"><b v-for="(item,index) in arrData" :class="{'active':curIndex==index}" v-html="item" @click="selectTab(index)"></b></p>
-			</div>
-			<div class="btmCon" id="harfMonLine" v-show="curIndex==0" style="height:400px;">
-			</div>
-			<div class="btmCon" id="dayBar" v-show="curIndex==1" style="height:400px;">
-			</div>
-			<div class="btmCon" id="MonBar" v-show="curIndex==2" style="height:400px;">
-			</div>
-		</div>
+
 	</div>
 </template>
 
@@ -197,12 +155,12 @@
 		},
 		created() {
 			this.harfMonLine();
-			this.MonBar();
+
 			this.dayBar()
 		},
 		mounted() {
-			this.circleChartCon();
-			this.harfMonLine();
+			this.biddingChart();
+			this.requireElecLine();
 			this.MonBar();
 			this.dayBar()
 			var sW = this.$refs.sumW.height;
@@ -272,200 +230,65 @@
 				this.curIndex = index;
 				console.log(this.curIndex)
 			},
-			circleChartCon() {
+			biddingChart() {
 				// 基于准备好的dom，初始化echarts实例
-				let chart = this.echarts.init(document.getElementById('circleChartCon'))
+				let chart = this.echarts.init(document.getElementById('biddingChart'))
 				// 绘制图表
 				chart.setOption({
-					tooltip: {
-						trigger: 'item',
-						formatter: "{a} <br/>{b}: {c} ({d}%)"
+					xAxis: {
+						type: 'category',
+						data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 					},
-					legend: {
-						type: 'scroll',
-						orient: 'vertical',
-						right: 10,
-						top: 20,
-						bottom: 20,
-						width: '50%',
-						data: ['直接访问', '邮件营销', '联盟广告', '视频广告']
+					yAxis: {
+						type: 'value'
 					},
 					series: [{
-						name: '访问来源',
-						type: 'pie',
-						radius: ['50%', '70%'],
-						avoidLabelOverlap: false,
-						label: {
-							normal: {
-								show: false,
-								position: 'center'
-							},
-							emphasis: {
-								funnel: {
-									x: '35%',
-									width: '50%',
-									funnelAlign: 'right',
-									max: 400
-								},
-								show: true,
-								textStyle: {
-									fontSize: '20',
-									fontWeight: 'bold'
-								}
-							}
-						},
-						labelLine: {
-							normal: {
-								show: false
-							}
-						},
-						data: [{
-								value: 335,
-								name: '直接访问'
-							},
-							{
-								value: 310,
-								name: '邮件营销'
-							},
-							{
-								value: 234,
-								name: '联盟广告'
-							},
-							{
-								value: 135,
-								name: '视频广告'
-							},
-
-						]
+						data: [820, 932, 901, 934, 1290, 1330, 1320],
+						type: 'line'
 					}]
 				});
 			},
-			harfMonLine() {
-				let chart = this.echarts.init(document.getElementById('harfMonLine'))
+			requireElecLine() {
+				// 基于准备好的dom，初始化echarts实例
+				let chart = this.echarts.init(document.getElementById('requireElecLine'))
 				// 绘制图表
-				let data = [
-					["2000-06-05", 116],
-					["2000-06-06", 129],
-					["2000-06-07", 135],
-					["2000-06-08", 86],
-					["2000-06-09", 73],
-					["2000-06-10", 85],
-					["2000-06-11", 73],
-					["2000-06-12", 68],
-					["2000-06-13", 92],
-					["2000-06-14", 130],
-					["2000-06-15", 245],
-					["2000-06-16", 139],
-					["2000-06-17", 115],
-					["2000-06-18", 111],
-					["2000-06-19", 309],
-					["2000-06-20", 206],
-					["2000-06-21", 137],
-					["2000-06-22", 128],
-					["2000-06-23", 85],
-					["2000-06-24", 94],
-					["2000-06-25", 71],
-					["2000-06-26", 106],
-					["2000-06-27", 84],
-					["2000-06-28", 93],
-					["2000-06-29", 85],
-					["2000-06-30", 73],
-					["2000-07-01", 83],
-					["2000-07-02", 125],
-					["2000-07-03", 107],
-					["2000-07-04", 82],
-					["2000-07-05", 44],
-					["2000-07-06", 72],
-					["2000-07-07", 106],
-					["2000-07-08", 107],
-					["2000-07-09", 66],
-					["2000-07-10", 91],
-					["2000-07-11", 92],
-					["2000-07-12", 113],
-					["2000-07-13", 107],
-					["2000-07-14", 131],
-					["2000-07-15", 111],
-					["2000-07-16", 64],
-					["2000-07-17", 69],
-					["2000-07-18", 88],
-					["2000-07-19", 77],
-					["2000-07-20", 83],
-					["2000-07-21", 111],
-					["2000-07-22", 57],
-					["2000-07-23", 55],
-					["2000-07-24", 60]
-				];
-
-				var dateList = data.map(function(item) {
-					return item[0];
-				});
-				var valueList = data.map(function(item) {
-					return item[1];
-				});
-
-				let option = {
-
-					// Make gradient line here
-					visualMap: [{
-						show: false,
-						type: 'continuous',
-						seriesIndex: 0,
-						min: 0,
-						max: 400
-					}, {
-						show: false,
-						type: 'continuous',
-						seriesIndex: 1,
-						dimension: 0,
-						min: 0,
-						max: dateList.length - 1
-					}],
-
-					title: [{
-						left: 'center',
-						text: 'Gradient along the y axis'
-					}, {
-						top: '55%',
-						left: 'center',
-						text: 'Gradient along the x axis'
-					}],
+				chart.setOption({
+					title: {
+						text: ''
+					},
 					tooltip: {
 						trigger: 'axis'
 					},
-					xAxis: [{
-						data: dateList
-					}, {
-						data: dateList,
-						gridIndex: 1
-					}],
-					yAxis: [{
-						splitLine: {
-							show: false
+					legend: {
+						data: ['需求测电量']
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					toolbox: {
+						feature: {
+							saveAsImage: {}
 						}
-					}, {
-						splitLine: {
-							show: false
-						},
-						gridIndex: 1
-					}],
-					grid: [{
-						bottom: '60%'
-					}, {
-						top: '60%'
-					}],
+					},
+					xAxis: {
+						type: 'category',
+						boundaryGap: false,
+						data: ['0', '0.2', '0.4', '0.6', '0.8', '1']
+					},
+					yAxis: {
+						type: 'value'
+					},
 					series: [{
+						name: '需求测电量',
 						type: 'line',
-						showSymbol: false,
-						data: valueList
-					}, {
-						type: 'line',
-						showSymbol: false,
-						data: valueList,
-						xAxisIndex: 1,
-						yAxisIndex: 1
+						stack: '总量',
+						color: "#ff3636",
+						data: [120, 132, 101, 134, 90, 230]
 					}]
-				};
-				chart.setOption(option);
+				});
 
 			},
 			MonBar() {
@@ -632,12 +455,27 @@
 		zoom: 1;
 	}
 	
-	
-	.tpLeftCon {
+	.tpLeftCon,
+	.cleftCon {
 		width: 72%;
 		float: left;
 		margin: 0px;
 		padding: 0px;
+	}
+	
+	.centerLeft {
+		width:100%;
+		border: .5px solid #e9eaec;
+		border-radius: 5px;
+		background: #fff;
+		margin-bottom:10px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		zoom: 1;
+	}
+	.cleftCon{
+		margin-right: 10px;
 	}
 	
 	.tpRightCon {
@@ -665,51 +503,12 @@
 		zoom: 1;
 	}
 	
-	.tpLftTop:after {
-		content: "";
-		height: 0;
-		line-height: 0;
-		display: block;
-		visibility: hidden;
-		clear: both
-	}
-	
 	.itemLcon {
 		width: 66%;
 		float: left;
 		background: #fff;
 		border: .5px solid #e9eaec;
 		border-radius: 5px;
-	}
-	
-	.lists {
-		padding: 30px 5px;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		zoom: 1;
-		margin: 0px;
-	}
-	
-	
-	.lists li {
-		width: 20%;
-		padding: 10px 0px;
-		color: #fff;
-		margin: 0px 10px;
-		float: left;
-		text-align: center;
-	}
-	
-	.lists li p {
-		line-height: 100px;
-		font-size: 40px;
-		font-weight: 900;
-		margin-bottom: 0;
-	}
-	
-	.lists li span {
-		font-size: 14px;
 	}
 	
 	.itemRcon {
@@ -723,30 +522,30 @@
 	
 	.msgCon {
 		padding: 20px 0px;
-		text-align:center
+		text-align: center
 	}
 	
 	.msgCon p {
-		width:100%;
+		width: 100%;
 		text-align: center;
 		line-height: 30px;
 		margin-bottom: 5px;
-		color:#c6a4cc;
-		font-size:12px;
+		color: #c6a4cc;
+		font-size: 12px;
 	}
-	.msgCon h3{
-		color:#c6a4cc
+	
+	.msgCon h3 {
+		color: #c6a4cc
 	}
 	
 	.msgCon p span {
 		font-size: 12px;
 		color: #3399ff;
-		
 	}
 	
 	.msgCon p b {
 		font-size: 12px;
-		color: #c6a4cc;	
+		color: #c6a4cc;
 	}
 	
 	.tpLftBtm {
@@ -770,7 +569,9 @@
 	.msgCon p:after,
 	.lists:after,
 	.topMain:after,
-	.itemTable:after{
+	.centerLeft:after,
+	.tpLftTop:after,
+	.itemTable:after {
 		content: "";
 		height: 0;
 		line-height: 0;
@@ -788,33 +589,41 @@
 		zoom: 1;
 		width: 25%;
 	}
-	.imgWrap{
-		width:90px;
-		height:60px;
-		float:left;
-		margin-right:10px;
+	
+	.imgWrap {
+		width: 90px;
+		height: 60px;
+		float: left;
+		margin-right: 10px;
 	}
-	.imgWrap img{
-		width:100%;
+	
+	.imgWrap img {
+		width: 100%;
 		height: 100%;
 	}
-	.txtCon p{
-		font-size:12px;
-		color:#999;
+	
+	.txtCon p {
+		font-size: 12px;
+		color: #999;
 		margin-bottom: 0px;
 	}
-	.itemTable:nth-of-type(1) h3{
-		color:#40a42b;
+	
+	.itemTable:nth-of-type(1) h3 {
+		color: #40a42b;
 	}
-	.itemTable:nth-of-type(2) h3{
-		color:#7ea7d0;
+	
+	.itemTable:nth-of-type(2) h3 {
+		color: #7ea7d0;
 	}
-	.itemTable:nth-of-type(3) h3{
-		color:#d18f75;
+	
+	.itemTable:nth-of-type(3) h3 {
+		color: #d18f75;
 	}
-	.itemTable:nth-of-type(4) h3{
-		color:#5f3f9f;
+	
+	.itemTable:nth-of-type(4) h3 {
+		color: #5f3f9f;
 	}
+	
 	@media (min-width: 1024px) {
 		.itemTable table td {
 			font-size: 10px
@@ -934,10 +743,9 @@
 	.tpRightCon:hover,
 	.itemLcon:hover,
 	.itemRcon:hover,
-	.useElecPro:hover,
-	.elecTime:hover,
 	.tradeCon:hover,
 	.btmMain:hover,
+	.centerLeft:hover,
 	.tpLftBtm:hover {
 		box-shadow: 0px 0px 5px 1px #ccc;
 	}
@@ -962,26 +770,45 @@
 	}
 	
 	.useElecPro {
-		width: 39.5%;
+		width: 65%;
 		float: left;
-		background: #fff;
-		border: .5px solid #e9eaec;
-		border-radius: 5px;
 		margin-right: 10px;
+		background: #fff;
 	}
 	
 	.elecTime {
-		width: 30%;
+		width: 33%;
 		height: 100%;
 		float: left;
 		background: #fff;
-		border: .5px solid #e9eaec;
+	}
+	
+	.titleHea p {
+		margin: 0px;
+		padding: 0px 0px 5px;
+	}
+	
+	.titleHea p button {
+		height: 30px;
+		padding: 0px 15px;
+		line-height: 30px;
+		border: none;
+		color: #fff;
 		border-radius: 5px;
+		background: #3399ff;
 		margin-right: 10px;
 	}
 	
+	.el-icon-refresh {
+		padding: 6px 10px;
+		background: #eaf6fe;
+		color: #3399ff;
+		margin-right: 10px;
+		font-size: 18px;
+	}
+	
 	.tradeCon {
-		width: 30%;
+		width: 28%;
 		height: 100%;
 		float: right;
 		background: #fff;
@@ -1001,36 +828,22 @@
 		color: #4fa8f9;
 	}
 	
-	.progressCon {
-		padding: 0px 20px 20px;
+	.requireElecLine {
+		padding: 0px 10px 20px;
+		height: 297px;
 	}
 	
-	.progressCon p {
-		padding-top: 1rem;
+	.requireElecLine p {
+		width: 100%;
+		text-align: right;
 	}
 	
-	.progressCon p span {
-		margin: 0px 10px;
+	.requireElecLine p a {
 		font-size: 12px;
-	}
-	
-	.progressCon p span b {
-		display: inline-block;
-		margin-right: 5px;
-		width: 15px;
-		height: 15px;
-	}
-	
-	.progressCon p span:nth-of-type(1) b {
-		background: #eeeeee;
-	}
-	
-	.progressCon p span:nth-of-type(2) b {
-		background: #4fa8f9;
-	}
-	
-	.progressCon p span:nth-of-type(3) b {
-		background: #f35e7a;
+		color: #3399ff;
+		margin-right: 10px;
+		cursor: pointer;
+		text-decoration: none;
 	}
 	
 	.el-progress-bar__outer {
@@ -1161,7 +974,7 @@
 		background: #fff;
 		border: .5px solid #e9eaec;
 		border-radius: 5px;
-		margin-bottom: 10px;
+		margin-top: 10px;
 	}
 	
 	@media (min-width: 1024px) {

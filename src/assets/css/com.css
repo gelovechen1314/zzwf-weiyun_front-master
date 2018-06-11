@@ -68,12 +68,12 @@
 		text-indent: 10px;
 		
 	}
-	.titleHea p i{
+	/*.titleHea p i{
 		font-style:normal;
 		font-size:20px;
 		position:absolute;
 		right:5px;
-	}
+	}*/
 	.titleHea p b {
 		font-weight: normal;
 	}

@@ -12,7 +12,7 @@
 					<el-option v-for="item in options1" :key="item.value" :label="item.label" :value="item.value">
 					</el-option>
 				</el-select>
-				<el-input class="input" placeholder="请输入内容" v-model="input23">
+				<el-input class="input"  placeholder="请输入内容" v-model="input23">
 					<i slot="prefix" class="el-input__icon el-icon-search"></i>
 				</el-input>
 				<el-button class="seraBtn5" plain type="primary">搜索</el-button>
@@ -480,7 +480,7 @@
 	
 	.input {
 		float:left;
-		display: inline-block;
+		display:block;
 		width:15%;
 	}
 	
