@@ -8,7 +8,7 @@
                 <b-nav pills vertical>
                 	 <b-nav-item to="/trade/transactionprofile">交易概况</b-nav-item>
                     <b-nav-item to="/trade/customerinformation" >历史数据</b-nav-item>
-                    <b-nav-item to="/trade/customermanagement/">模拟竞价</b-nav-item>
+                    <b-nav-item to="/trade/analoguebidding">模拟竞价</b-nav-item>
                     <b-nav-item to="/trade/longassociatmanagement" >长协管理</b-nav-item>
                     <b-nav-item to="/trade/powerpurchasedetails">购电详情</b-nav-item>
                    <b-nav-item to="/trade/powerplantplan" >电厂计划</b-nav-item>

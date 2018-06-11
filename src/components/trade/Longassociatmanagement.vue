@@ -2,7 +2,7 @@
 	<div class="contentCon">
 		<div class="top">
 			<div class="header titleHea">
-				<span>长协统计</span>
+				<span style="display:inline-block;width:25%;">长协统计</span>
 				<p>
 					<el-date-picker  v-model="value5" type="year" placeholder="选择年">
 						

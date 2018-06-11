@@ -2,7 +2,7 @@
 	<div class='wrap'>
 		<div class="header titleHea">
 			<span>数据采集</span>
-			<p><a href="/"><em class="iconfont">&#xe778;</em>首页：</a><b>设置></b><b>新闻中心</b></p>
+			<p><a href="/"><em class="iconfont">&#xe778;</em>首页：</a><b>设置></b><b>数据采集</b></p>
 		</div>
 		<div class="wrapper-md wrapperBox" >
 			<div class="mainCon">

@@ -213,8 +213,8 @@
 	.searchCon .div {
 		display: inline-block;
 		float: right;
-		height: 40px;
-		line-height: 40px;
+		/*height: 30px;
+		line-height: 30px;*/
 	}
 	
 	.el-icon {
@@ -244,9 +244,10 @@
 		border: none;
 		background: #eaf6fe;
 		font-size: 14px;
-		padding: 0px 10px;
+		padding: 5px 10px;
 		color: #2d8cf0;
 		outline: none;
+		margin-right:10px;
 	}
 	
 	.recordBtn:hover,

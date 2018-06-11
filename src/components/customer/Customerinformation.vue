@@ -18,7 +18,7 @@
 				<el-button class="seraBtn5" plain type="primary">搜索</el-button>
 				<el-cascader class="selecArea" separator="" :options="options2" @active-item-change="handleItemChange" :props="props"></el-cascader>
 			</p>
-			<span><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
+			<span class="span"><i class="el-icon-refresh el-icon"></i><i class="el-icon-share el-icon"></i></span>
 		</div>
 		<div class="tableWrap">
 			<el-table size="mini" class="tableTop"   ref="multipleTable" :data="tableData3" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
@@ -469,19 +469,19 @@
 	
 	.searchCon p {
 		display: inline-block;
-		width: 40%;
+		width: 70%;
 		height: 38px;
-		position: relative;
+		/*position: relative;*/
 	}
 	
-	.searchCon span {
+	.searchCon .span {
 		float: right;
 	}
 	
 	.input {
-		position: absolute;
-		left: 230px;
-		top: 0px;
+		float:left;
+		display: inline-block;
+		width:15%;
 	}
 	
 	.el-icon {
@@ -498,44 +498,50 @@
 	}
 	
 	.addBtn {
-		position: absolute;
-		left: 0px;
-		height: 40px;
-		top: 0px;
+		float:left;
 		border-radius: 0px;
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
 	}
+	.recordBtn {
+		border: none;
+		background: #eaf6fe;
+		font-size: 14px;
+		padding: 5px 10px;
+		color: #2d8cf0;
+		margin-right:10px;
+		outline: none;
+	}
 	
+	.recordBtn:hover,
+	.recordBtn:active {
+		background: #c5e5fb;
+	}
 	.seraBtn5 {
-		position: absolute;
-		background: none;
-		right: -110px;
-		height: 40px;
-		top: 0px;
+		float:left;
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 	}
 	
 	.selecArea {
-		position: absolute;
-		background: none;
-		right: -315px;
-		height: 40px;
-		top: 0px;
+		float:left;
+		width:15%;
+		display: inline-block;
 		border-radius: 0px;
 		border-top-right-radius: 5px;
 		border-bottom-right-radius: 5px;
 	}
 	
 	.selectCon {
-		position: absolute;
-		left: 109px;
+		float:left;
+		width:15%;
+		color:#2d8cf0;
+		display: inline-block;
 	}
 	
 	.el-input {
-		width: 60%;
+		width: 30%;
 	}
 	
 	.el-icon-search {

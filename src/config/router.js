@@ -63,13 +63,17 @@ const routes = [{
 				component: Trade,
 				children: [{
 						path: '/',
-						component: r => require.ensure([], () => r(require('../components/trade/index.vue')), 'trade')
+						component: r => require.ensure([], () => r(require('../components/trade/Transactionprofile.vue')), 'trade')
 					},
 
 					{
 						path: '/trade/transactionprofile',
 						component: r => require.ensure([], () => r(require('../components/trade/Transactionprofile.vue')), 'trade')
 					},
+					{
+						path: '/trade/analoguebidding',
+						component: r => require.ensure([], () => r(require('../components/trade/Analoguebidding.vue')), 'trade')
+					}, 
 					{
 						path: '/trade/longassociatmanagement',
 						component: r => require.ensure([], () => r(require('../components/trade/Longassociatmanagement.vue')), 'trade')
@@ -129,7 +133,7 @@ const routes = [{
 				component: Forecast,
 				children: [{
 						path: '/',
-						component: r => require.ensure([], () => r(require('../components/forecast/Index.vue')), 'forecast')
+						component: r => require.ensure([], () => r(require('../components/forecast/Annualelectricityforecast.vue')), 'forecast')
 					},
 					{
 						path: '/forecast/annualelectricityforecast',
@@ -293,7 +297,7 @@ const routes = [{
 						component: Dataacquisition,
 						children: [{
 								path: '/metering/dataacquisition/',
-								component: r => require.ensure([], () => r(require('../components/metering/hourlyload.vue')), 'setup')
+								component: r => require.ensure([], () => r(require('../components/metering/Hourlyload.vue')), 'setup')
 							},
 							{
 								path: '/metering/dataacquisition/Fifteenminuteload',

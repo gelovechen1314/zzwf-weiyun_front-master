@@ -9,7 +9,7 @@
 					<b-nav-item to="/customer/supplier">客户概况</b-nav-item>
 					<b-nav-item to="/customer/publiccustomer">公示客户</b-nav-item>
 					<b-nav-item to="/customer/customercrm">客户CRM</b-nav-item>
-					<b-nav-item to="/customer/customerinformation">客户信息</b-nav-item>
+					<b-nav-item to="/customer/customerinformation">户号管理</b-nav-item>
 					<b-nav-item to="/customer/customermanagement/">客户管理</b-nav-item>
 
 				</b-nav>

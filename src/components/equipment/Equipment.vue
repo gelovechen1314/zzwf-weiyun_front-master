@@ -16,7 +16,7 @@
         <div class="col">
            <router-view></router-view>
         </div>
-        <!--<div class="col right">
+       <!-- <div class="col right">
 			<div class="header">
 				选择企业
 			</div>
